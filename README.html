@@ -124,16 +124,27 @@ $(document).ready(function () {
 <div id="info-201-final-project-proposal" class="section level1">
 <h1>INFO 201 Final Project Proposal</h1>
 <p>By Kiran Pradhan, Shun Matsuo, Markus Shriner, and Nikki Demmel</p>
+<p>5/14/18</p>
 <div id="project-description" class="section level3">
 <h3>Project Description</h3>
-<ul>
-<li><p>We are working with the ____ dataset. <background on who collected the data, where we accessed it, and any additional information we should know about how this data came to be></p></li>
-<li><p>Our target audience is ____. Depending on the domain of your data, there may be a variety of audiences interested in using the dataset. You should hone in on one of these audiences.</p></li>
-<li><p>What does your audience want to learn from your data? Please list out at least 3 specific questions that your project will answer for your audience.</p></li>
-</ul>
+<p>We are working with a dataset on <a href="https://github.com/fivethirtyeight/data/tree/master/hate-crimes">hate crimes and income inequality</a>. This data comes from <strong>FiveThirtyEight</strong>, and it is accessible on GitHub. Most of the original data was collected in 2015, but a few values were observed in 2016, like the median household income and the amount of hate crimes per 100,000 people in each state. The oldest data comes from 2009, which is a measurement of the number of adults 25 and older who graduated form high school. The dataset is an aggregation of observations from many different sources, including the Kaiser Family Foundation and the United States Census Bureau.</p>
+<p>Our goals in working with this dataset are to bring awareness to the real-life impacts income inequality has in our country’s unity and wellbeing, and to encourage those in positions of power to address income inequality through legislation and advocacy. Our target audience is mayors, governors, lobby groups, and anyone else with a loud enough voice to act on our findings.</p>
+<p>Our audience will learn three things from our dataset:</p>
+<ol style="list-style-type: decimal">
+<li><p>Do income inequality, education, and racial diversity each influence the rate of hate crimes in a state?</p></li>
+<li><p>Which state has the highest rate of hate crimes per 100,000 people?</p></li>
+<li><p>Is there any correlation between the 2016 general election and a change in the average number of hate crimes per state?</p></li>
+</ol>
 </div>
 <div id="technical-description" class="section level3">
 <h3>Technical Description</h3>
+<ul>
+<li><p>The data is in .csv format on GitHub, we will read it into RStudio to sift through the information.</p></li>
+<li><p>We will need to reshape the data to include only the information that is pertinent to our audience when we present our findings.</p></li>
+<li><p>Besides common libraries such as dplyr, we will be using the Hmisc and Companion to Applied Regression (CAR) libraries to perform our analyses.</p></li>
+<li><p>We anticipate a discussion over our creative differences later in the project’s development, specifically when we are creating our visualizations. Because we all have similar political ideologies, we must take caution not to jump to conclusions in our findings which would affirm our biases. Due to the nature of the questions we are asking with this dataset, we must remind ourselves that correlation is not the same as causation.</p></li>
+<li><p>We will be using statistical analysis to derive index scores for each category related to hate crime rates. We will compare the Gini index, percent of the population with a high school degree, and the proportion of the population identifying as nonwhite each to the rate of hate crimes per 100,000 people to identify which quality most closely correlates with the average annual rate of hate crimes per 100,000 people.</p></li>
+</ul>
 </div>
 </div>
 
