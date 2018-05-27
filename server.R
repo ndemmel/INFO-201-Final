@@ -1,6 +1,7 @@
 # server.R
 library(plotly)
 library(shiny)
+library(ggplot2)
 
 shinyServer(function(input, output) {
   output$interactive <- renderPlotly({
@@ -15,12 +16,13 @@ shinyServer(function(input, output) {
     p <- plot_geo(hate_crimes, locationmode = "USA-states") %>%
       add_trace(
         z = hate_crimes[[input$beforeOrAfter]],
-        text = hate_crimes[[input$beforeOrAfter]],
-        locations = ~ code,
+        text = paste(hate_crimes[[input$beforeOrAfter]]),
+        locations = ~code,
         color = hate_crimes[[input$beforeOrAfter]],
-        colors = "Purples"
+        colors = 'Purples'
       ) %>%
-      colorbar(title = "Number Per 100K Population") %>%
+      colorbar(title = "Number Per 100K Population"
+      ) %>%
       layout(
         title = "Average Number of Hate Crimes by State",
         geo = g

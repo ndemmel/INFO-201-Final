@@ -4,6 +4,7 @@ library(dplyr)
 
 # hate crimes
 hate_crimes <- read.csv("hate_crimes.csv", stringsAsFactors = FALSE)
+hate_crimes[is.na(hate_crimes)] <- 0
 
 hate_crimes_minus_DC <- hate_crimes[-9, ]
 # Hate Crimes per State
@@ -30,4 +31,6 @@ hate_crimes_minus_DC <- mutate(hate_crimes_minus_DC,
 hate_crimes_minus_DC <- mutate(hate_crimes_minus_DC, div_corr = share_non_white
                                / avg_hatecrimes_per_100k_fbi)
        
-# 2016 Presidential Election
+# Introduction
+intro <-
+  ""
