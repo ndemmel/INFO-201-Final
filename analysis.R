@@ -23,12 +23,11 @@ hate_crimes_minus_DC <- mutate(hate_crimes_minus_DC, income_corr = gini_index
 
 # affect of education on rate of hate crimes
 hate_crimes_minus_DC <- mutate(hate_crimes_minus_DC,
-       edu_corr = share_population_with_high_school_degree / 
-         avg_hatecrimes_per_100k_fbi)
-                          
+                               edu_corr = share_population_with_high_school_degree / 
+                                 avg_hatecrimes_per_100k_fbi)
+
 # affect of racial diversity on rate of hate crimes
 hate_crimes_minus_DC <- mutate(hate_crimes_minus_DC, div_corr = share_non_white
                                / avg_hatecrimes_per_100k_fbi)
-       
-# 2016 Presidential Election
 
+# 2016 Presidential Election
