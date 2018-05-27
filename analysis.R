@@ -31,4 +31,3 @@ hate_crimes_minus_DC <- mutate(hate_crimes_minus_DC, div_corr = share_non_white
                                / avg_hatecrimes_per_100k_fbi)
        
 # 2016 Presidential Election
-
