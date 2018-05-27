@@ -1,6 +1,7 @@
 # server.R
 library(plotly)
 library(shiny)
+library(ggplot2)
 
 shinyServer(function(input, output) {
 
@@ -16,7 +17,7 @@ shinyServer(function(input, output) {
     p <- plot_geo(hate_crimes, locationmode = 'USA-states') %>%
       add_trace(
         z = hate_crimes[[input$beforeOrAfter]], 
-        text = hate_crimes[[input$beforeOrAfter]], 
+        text = paste(hate_crimes[[input$beforeOrAfter]]), 
         locations = ~code,
         color = hate_crimes[[input$beforeOrAfter]], 
         colors = 'Purples'
