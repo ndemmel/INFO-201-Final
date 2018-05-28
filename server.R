@@ -23,14 +23,21 @@ shinyServer(function(input, output) {
         text = ~hover, 
         locations = hate_crimes$state,
         color = hate_crimes$avg_hatecrimes_per_100k_fbi, 
-        colors = 'Blues'
+        color = 'Blues'
       ) %>%
       colorbar(title = "Number of Hate Crimes Per 100k") %>%
       layout(
         title = 'Average Annual Hate Crimes By State',
         geo = g
       )
-    
   })
   
+  output$scatter <- renderPlotly({
+    interactive_scatterplot <- plot_ly(hate_crimes_minus_DC,
+                                      x = input$xvar,
+                                      y = hate_crimes_minus_DC$avg_hatecrimes_per_100k_fbi) %>%
+      layout(title = paste0(input$xvar, " vs Hate Crime Rate")) %>%
+      add_trace(
+        text = ~state)
+  })
 })
