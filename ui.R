@@ -8,7 +8,7 @@ source("analysis.R")
 
 # create Shiny UI
 shinyUI(fluidPage(
-  navbarPage("Factors Influencing Rate of Hate Crimes", inverse = TRUE,
+  navbarPage("Factors Influencing Rate of Hate Crimes", inverse = FALSE,
     tags$link(rel = "stylesheet", type = "text/css", href = "style.css"),
     tabPanel("Introduction"),
     # FIRST TAB
@@ -74,6 +74,7 @@ shinyUI(fluidPage(
         plotOutput("comparison")
       )
     ),
+    
     # Third Tab
     tabPanel("Scatter Plot",
              sidebarLayout(
@@ -87,8 +88,7 @@ shinyUI(fluidPage(
                  ),
                mainPanel(plotlyOutput("scatter"))
              ),
-             "use HTML or CSS to center this line in the middle of the page.
-             This graph shows the overall trend between the variable(s) selected
+             "This graph shows the overall trend between the variable(s) selected
              and the rate of hate crimes for each state. Check the boxes to 
              compare variables. See if you can find the answers to these 
              questions: 
@@ -99,4 +99,3 @@ shinyUI(fluidPage(
     )
   )
 ))
-
