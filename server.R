@@ -60,4 +60,3 @@ shinyServer(function(input, output) {
         text = ~state)
   })
 })
-})
