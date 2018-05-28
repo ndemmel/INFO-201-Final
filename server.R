@@ -56,9 +56,13 @@ shinyServer(function(input, output) {
     text(1.9, 6, paste0("(", sum_state_two_crimes, ")"))
   })
   
-  output$scatter <- renderPlot({
-    
-    
-    
+  output$scatter <- renderPlotly({
+    interactive_scatterplot <- plot_ly(hate_crimes_minus_DC,
+                                       x = input$xvar,
+                                       y = hate_crimes_minus_DC$avg_hatecrimes_per_100k_fbi) %>%
+      layout(title = paste0(input$xvar, " vs Hate Crime Rate")) %>%
+      add_trace(
+        text = ~state)
   })
+  
 })
