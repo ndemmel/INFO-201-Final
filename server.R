@@ -2,8 +2,13 @@
 library(plotly)
 library(shiny)
 library(ggplot2)
+library(knitr)
 
 shinyServer(function(input, output) {
+  output$introduction <- renderUI({
+    HTML(markdown::markdownToHTML(knit('introduction.md', quiet = TRUE)))
+  })
+  
   output$interactive <- renderPlotly({
     # map projection/options
     g <- list(
@@ -49,5 +54,11 @@ shinyServer(function(input, output) {
     )
     text(0.7, 6, paste0("(", sum_state_one_crimes, ")"))
     text(1.9, 6, paste0("(", sum_state_two_crimes, ")"))
+  })
+  
+  output$scatter <- renderPlot({
+    
+    
+    
   })
 })

@@ -8,9 +8,12 @@ source("analysis.R")
 
 # create Shiny UI
 shinyUI(fluidPage(
-  navbarPage("Factors Influencing Rate of Hate Crimes", inverse = TRUE,
+  navbarPage("Factors Influencing Rate of Hate Crimes", inverse = FALSE,
     tags$link(rel = "stylesheet", type = "text/css", href = "style.css"),
-    tabPanel("Introduction"),
+    
+    # INTRODUCTION
+    tabPanel("Introduction", mainPanel(uiOutput("introduction"))),
+    
     # FIRST TAB
     tabPanel("2016 Election",
       tags$h3("Affect of the 2016 Presidential Election on Rate of Hate Crimes"),
@@ -29,6 +32,7 @@ shinyUI(fluidPage(
         )
       )
     ),
+    
     # SECOND TAB
     tabPanel(
       "Comparison Between States",
@@ -74,7 +78,8 @@ shinyUI(fluidPage(
         plotOutput("comparison")
       )
     ),
-    # Third Tab
+    
+    # THIRD TAB
     tabPanel("Scatter Plot",
              sidebarLayout(
                sidebarPanel(
