@@ -30,12 +30,7 @@ hate_crimes_minus_DC <- mutate(hate_crimes_minus_DC,
 # affect of racial diversity on rate of hate crimes
 hate_crimes_minus_DC <- mutate(hate_crimes_minus_DC, div_corr = share_non_white
                                / avg_hatecrimes_per_100k_fbi)
-<<<<<<< HEAD
-
-# 2016 Presidential Election
-=======
        
 # Introduction
 intro <-
   ""
->>>>>>> 0906f7335cfec9f049504ccf935988948fa563d0
