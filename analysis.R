@@ -1,5 +1,5 @@
 # analysis.R
-# create data frames for visualizations
+# manipulate data to create data frames for visualizations
 library(dplyr)
 
 # hate crimes
@@ -30,6 +30,3 @@ hate_crimes_minus_DC <- mutate(hate_crimes_minus_DC,
 # affect of racial diversity on rate of hate crimes
 hate_crimes_minus_DC <- mutate(hate_crimes_minus_DC, div_corr = share_non_white
                                / avg_hatecrimes_per_100k_fbi)
-       
-# Introduction
-intro <- "This "

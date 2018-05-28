@@ -2,8 +2,13 @@
 library(plotly)
 library(shiny)
 library(ggplot2)
+library(knitr)
 
 shinyServer(function(input, output) {
+  output$introduction <- renderUI({
+    HTML(markdown::markdownToHTML(knit('introduction.md', quiet = TRUE)))
+  })
+  
   output$interactive <- renderPlotly({
     # map projection/options
     g <- list(
@@ -59,4 +64,5 @@ shinyServer(function(input, output) {
       add_trace(
         text = ~state)
   })
+  
 })
