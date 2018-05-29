@@ -5,6 +5,8 @@ library(dplyr)
 # hate crimes
 hate_crimes <- read.csv("hate_crimes.csv", stringsAsFactors = FALSE)
 
+#hate_crimes[is.na(hate_crimes)] <- 0
+
 hate_crimes_minus_DC <- hate_crimes[-9, ]
 # Hate Crimes per State
 
@@ -19,7 +21,7 @@ worst_state <- worst_state_frame$state
 
 # affect of income inequality on rate of hate crimes
 hate_crimes_minus_DC <- mutate(hate_crimes_minus_DC, income_corr = gini_index
-                               / avg_hatecrimes_per_100k_fbi)
+/ avg_hatecrimes_per_100k_fbi)
 
 # affect of education on rate of hate crimes
 hate_crimes_minus_DC <- mutate(hate_crimes_minus_DC,
@@ -42,3 +44,7 @@ crimes_states <- mutate(hate_crimes_minus_DC, locations = c(
   "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM",
   "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX",
   "UT", "VT", "VA", "WA", "WV", "WI", "WY"))
+
+# Scale weeks on rate of hate crimes to match avg annual
+crimes_states <- crimes_states %>%
+  mutate(avg_hatecrimes_per_100k_fbi = avg_hatecrimes_per_100k_fbi / 36.5)

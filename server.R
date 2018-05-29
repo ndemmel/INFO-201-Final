@@ -22,6 +22,7 @@ shinyServer(function(input, output) {
       lakecolor = toRGB("white")
     )
     
+
     p <- plot_geo(crimes_states, locationmode = "USA-states") %>%
       add_trace(
         z = ~ crimes_states[[input$beforeOrAfter]],
@@ -29,7 +30,8 @@ shinyServer(function(input, output) {
         color = ~ crimes_states[[input$beforeOrAfter]],
         colors = "Purples"
       ) %>%
-      colorbar(title = "Number Per 100K Population") %>%
+
+      colorbar(title = "Number Per 100K Population", limits = c(0, 0.9)) %>%
       layout(
         title = "Average Annual Number of Hate Crimes by State per 100,000 People",
         geo = g
@@ -57,7 +59,8 @@ shinyServer(function(input, output) {
     text(0.7, 6, paste0("(", sum_state_one_crimes, ")"))
     text(1.9, 6, paste0("(", sum_state_two_crimes, ")"))
   })
-  
+
+
   # output$scatter <- renderPlotly({
   #   scatterplot <- plot_ly(hate_crimes_minus_DC,
   #     x = hate_crimes_minus_DC[[input$xvar]],
@@ -75,9 +78,10 @@ shinyServer(function(input, output) {
   #                     "<br>Rate of Hate Crimes:", round(hate_crimes_minus_DC$avg_hatecrimes_per_100k_fbi,4))
   #     )
   # })
-  
+
+
   output$scatter <- renderPlotly({
-    interactive_scatterplot <- 
+    interactive_scatterplot <-
       if(match('Racial Diversity', input$xvar)) {
         plot_ly(hate_crimes_minus_DC,
                 x = hate_crimes_minus_DC$`Racial Diversity`,
@@ -93,36 +97,37 @@ shinyServer(function(input, output) {
                           "<br>Rate of Hate Crimes:", round(hate_crimes_minus_DC$avg_hatecrimes_per_100k_fbi,4))
           )
       }
-    if(match('Education', input$xvar)) {
-      plot_ly(hate_crimes_minus_DC,
-              x = hate_crimes_minus_DC$Education,
-              y = hate_crimes_minus_DC$avg_hatecrimes_per_100k_fbi
-      ) %>%
-        layout(title = paste0(input$xvar, " vs. Rate of Hate Crimes"),
-               xaxis = list(title = "Correlation Coefficient"),
-               yaxis = list(title = "Avg Annual Hate Crimes per 100K Population")
+    
+      if(match('Education', input$xvar)) {
+        plot_ly(hate_crimes_minus_DC,
+                x = hate_crimes_minus_DC$Education,
+                y = hate_crimes_minus_DC$avg_hatecrimes_per_100k_fbi
         ) %>%
-        add_markers(
-          text = ~paste(hate_crimes_minus_DC$state,
-                        "<br>Correlation Coefficient: ", round(hate_crimes_minus_DC[[input$xvar]],4),
-                        "<br>Rate of Hate Crimes:", round(hate_crimes_minus_DC$avg_hatecrimes_per_100k_fbi,4))
-        )
-    }
-    if(match('Income Inequality', input$xvar)) {
-      plot_ly(hate_crimes_minus_DC,
-              x = hate_crimes_minus_DC$`Income Inequality`,
-              y = hate_crimes_minus_DC$avg_hatecrimes_per_100k_fbi
-      ) %>%
-        layout(title = paste0(input$xvar, " vs. Rate of Hate Crimes"),
-               xaxis = list(title = "Correlation Coefficient"),
-               yaxis = list(title = "Avg Annual Hate Crimes per 100K Population")
+          layout(title = paste0(input$xvar, " vs. Rate of Hate Crimes"),
+                 xaxis = list(title = "Correlation Coefficient"),
+                 yaxis = list(title = "Avg Annual Hate Crimes per 100K Population")
+          ) %>%
+          add_markers(
+            text = ~paste(hate_crimes_minus_DC$state,
+                          "<br>Correlation Coefficient: ", round(hate_crimes_minus_DC[[input$xvar]],4),
+                          "<br>Rate of Hate Crimes:", round(hate_crimes_minus_DC$avg_hatecrimes_per_100k_fbi,4))
+          )
+      }
+      if(match('Income Inequality', input$xvar)) {
+        plot_ly(hate_crimes_minus_DC,
+                x = hate_crimes_minus_DC$`Income Inequality`,
+                y = hate_crimes_minus_DC$avg_hatecrimes_per_100k_fbi
         ) %>%
-        add_markers(
-          text = ~paste(hate_crimes_minus_DC$state,
-                        "<br>Correlation Coefficient: ", round(hate_crimes_minus_DC[[input$xvar]],4),
-                        "<br>Rate of Hate Crimes:", round(hate_crimes_minus_DC$avg_hatecrimes_per_100k_fbi,4))
-        )
-    }
+          layout(title = paste0(input$xvar, " vs. Rate of Hate Crimes"),
+                 xaxis = list(title = "Correlation Coefficient"),
+                 yaxis = list(title = "Avg Annual Hate Crimes per 100K Population")
+          ) %>%
+          add_markers(
+            text = ~paste(hate_crimes_minus_DC$state,
+                          "<br>Correlation Coefficient: ", round(hate_crimes_minus_DC[[input$xvar]],4),
+                          "<br>Rate of Hate Crimes:", round(hate_crimes_minus_DC$avg_hatecrimes_per_100k_fbi,4))
+          )
+      }
   })
-  
+
 })
