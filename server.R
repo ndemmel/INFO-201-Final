@@ -13,18 +13,16 @@ shinyServer(function(input, output) {
       lakecolor = toRGB("white")
     )
 
-    p <- plot_geo(hate_crimes, locationmode = "USA-states") %>%
+    p <- plot_geo(crimes_states, locationmode = "USA-states") %>%
       add_trace(
-        z = hate_crimes[[input$beforeOrAfter]],
-        text = paste(hate_crimes[[input$beforeOrAfter]]),
-        locations = ~code,
-        color = hate_crimes[[input$beforeOrAfter]],
-        colors = 'Purples'
+        z = ~ crimes_states[[input$beforeOrAfter]],
+        locations = ~ crimes_states$locations,
+        color = ~ crimes_states[[input$beforeOrAfter]],
+        colors = "Purples"
       ) %>%
-      colorbar(title = "Number Per 100K Population"
-      ) %>%
+      colorbar(title = "Number Per 100K Population") %>%
       layout(
-        title = "Average Number of Hate Crimes by State",
+        title = "Average Number of Hate Crimes by State per 100,000 People",
         geo = g
       )
   })
