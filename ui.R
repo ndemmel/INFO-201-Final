@@ -105,16 +105,7 @@ shinyUI(fluidPage(
               selected = "Education"
             )
           ),
-          mainPanel(plotlyOutput("scatter"))
-        ),
-        "This graph shows the overall trend between the variable(s) selected
-             and the rate of hate crimes for each state. Check the boxes to
-             compare variables. See if you can find the answers to these
-             questions:
-             1. What kind of trend do you see between education and the rate
-             of hate crimes?
-             2. Can you accurately guess where your state falls on the trend line?
-             Hover over each circle to check your guess!"
+          mainPanel(plotlyOutput("scatter"), uiOutput("scatterinfo")))
       ),
 
       # Final Tab
@@ -127,12 +118,12 @@ shinyUI(fluidPage(
         p("2. Which state has the highest rate of hate crimes per 100,000 people?"),
         p("3. Is there any correlation between the 2016 general election and a   
           change in the average number of hate crimes per state?"),
-        p("The 3 visualizations; 2016 Election, compare States, and Demographic Facotors revealed significant trends and correlations regarding hate crimes."),
+        p("While our 3 visualizations; 2016 Election, Compare States, and Demographic Facotors revealed significant trends and correlations regarding hate crimes, 
+          the one thing to remember is that correlations are not the same as causations. "),
 
         h3("Our Team", align = "Center"),
         img(
-          src = "TeamPhotos/Team.jpg", width = 900,
-          style = "display: block; margin-left: auto; margin-right: auto;"
+          src = "Team.jpg", width = 900
         )
       )
     )
