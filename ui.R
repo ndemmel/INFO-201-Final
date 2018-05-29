@@ -42,7 +42,7 @@ shinyUI(fluidPage(
       # SECOND TAB
       tabPanel(
         "Compare States",
-        tags$h3("Compare Rate of Hate Crimes Between Two States"),
+        tags$h3("Compare Average Annual Number of Hate Crimes Between Two States (2010-2015)"),
         br(),
         sidebarPanel(
           selectInput("state1", "Select First State:",
@@ -83,7 +83,8 @@ shinyUI(fluidPage(
           )
         ),
         mainPanel(
-          plotOutput("comparison")
+          plotOutput("comparison"),
+          uiOutput("barplot_info")
         )
       ),
 

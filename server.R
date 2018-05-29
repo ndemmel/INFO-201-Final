@@ -9,6 +9,10 @@ shinyServer(function(input, output) {
     HTML(markdown::markdownToHTML(knit('introduction.md', quiet = TRUE)))
   })
 
+  output$barplot_info <- renderUI({
+    HTML(markdown::markdownToHTML(knit('barplot_info.md', quiet = TRUE)))
+  })
+
   output$interactive <- renderPlotly({
     # map projection/options
     g <- list(
