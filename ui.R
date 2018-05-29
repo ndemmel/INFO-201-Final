@@ -18,7 +18,9 @@ shinyUI(fluidPage(
       # INTRODUCTION
       tabPanel(
         "Introduction",
-        br(), uiOutput("introduction")
+        br(), uiOutput("introduction"),
+        img(src="no-more-hate-crimes.jpg", align = "center", width = 200, height = 145,
+            style = "display: block; margin-left: auto; margin-right: auto;")
       ),
 
       # FIRST TAB
