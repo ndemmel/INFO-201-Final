@@ -102,6 +102,21 @@ shinyUI(fluidPage(
              of hate crimes?
              2. Can you accurately guess where your state falls on the trend line?
              Hover over each circle to check your guess!"
+    ),
+    
+    # Final Tab
+    
+    tabPanel("Conclusion",
+             h1('~Correlation is not Causation~', align = 'Center'),
+             p('Using a dataset on hate crimes and various demographic factors available to us on github, our team aimed to answer the following questions in this data visualization:'),
+             p('1. Do income inequality, education, and racial diversity each influence the rate of hate crimes in a state?'),
+             p('2. Which state has the highest rate of hate crimes per 100,000 people?'),
+             p('3. Is there any correlation between the 2016 general election and a change in the average number of hate crimes per state?'),
+             
+             
+             h3('Our Team', align = 'Center'),
+             img(src = "Team.jpg", width = 900, 
+                 style = "display: block; margin-left: auto; margin-right: auto;")
     )
   )
 ))
