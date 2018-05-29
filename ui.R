@@ -1,6 +1,5 @@
 # ui.R
 library(dplyr)
-library(ggplot2)
 library(plotly)
 library(shiny)
 
@@ -9,10 +8,14 @@ source("analysis.R")
 
 # create Shiny UI
 shinyUI(fluidPage(
+<<<<<<< HEAD
   navbarPage("Factors Influencing Rate of Hate Crimes",
     inverse = TRUE,
     tags$link(rel = "stylesheet", type = "text/css", href = "style.css"),
-    tabPanel("Introduction"),
+
+    # INTRODUCTION
+    tabPanel("Introduction", mainPanel(uiOutput("introduction"))),
+
     # FIRST TAB
     tabPanel(
       "2016 Election",
@@ -32,6 +35,7 @@ shinyUI(fluidPage(
         )
       )
     ),
+
     # SECOND TAB
     tabPanel(
       "Comparison Between States",
@@ -76,6 +80,47 @@ shinyUI(fluidPage(
       mainPanel(
         plotOutput("comparison")
       )
+    ),
+
+
+    # THIRD TAB
+
+    tabPanel("Scatter Plot",
+             sidebarLayout(
+               sidebarPanel(
+                 "Pick Which Regression Lines You Wish to Compare",
+                 checkboxGroupInput("xvar",
+                  label = "Choose from 3 Characteristics",
+                  choices = list("Education" = "Education",
+                                 "Income Inequality" = "Income Inequality",
+                                 "Racial Diversity" = "Racial Diversity"),
+                  selected = "Education")
+                 ),
+               mainPanel(plotlyOutput("scatter"))
+             ),
+             "This graph shows the overall trend between the variable(s) selected
+             and the rate of hate crimes for each state. Check the boxes to
+             compare variables. See if you can find the answers to these
+             questions:
+             1. What kind of trend do you see between education and the rate
+             of hate crimes?
+             2. Can you accurately guess where your state falls on the trend line?
+             Hover over each circle to check your guess!"
+    ),
+
+    # Final Tab
+
+    tabPanel("Conclusion",
+             h1('~Correlation is not Causation~', align = 'Center'),
+             p('Using a dataset on hate crimes and various demographic factors available to us on github, our team aimed to answer the following questions in this data visualization:'),
+             p('1. Do income inequality, education, and racial diversity each influence the rate of hate crimes in a state?'),
+             p('2. Which state has the highest rate of hate crimes per 100,000 people?'),
+             p('3. Is there any correlation between the 2016 general election and a change in the average number of hate crimes per state?'),
+
+
+             h3('Our Team', align = 'Center'),
+             img(src = "Team.jpg", width = 900,
+                 style = "display: block; margin-left: auto; margin-right: auto;")
     )
   )
 ))
