@@ -13,6 +13,10 @@ shinyServer(function(input, output) {
     HTML(markdown::markdownToHTML(knit('scatterplot.Rmd', quiet = TRUE)))
   })
   
+  output$conclusion <- renderUI({
+    HTML(markdown::markdownToHTML(knit('conclusion.md', quiet = TRUE)))
+  })
+  
   output$interactive <- renderPlotly({
     # map projection/options
     g <- list(

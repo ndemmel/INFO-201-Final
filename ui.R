@@ -116,10 +116,11 @@ shinyUI(fluidPage(
 
       tabPanel(
         "Conclusion",
-        mainPanel(uiOutput("conclusion"), align = "Center"),
+        br(), uiOutput("conclusion"),
         h3("~Our Team~", align = "Center"),
         img(
-          src = "Team.jpg", width = 1000, style = "display: block; margin-left: auto; margin-right: auto;"
+          src = "Team.jpg", height = 205, width = 1000, 
+          style = "display: block; margin-left: auto; margin-right: auto;"
         )
       )
     )
