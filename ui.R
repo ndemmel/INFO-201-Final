@@ -1,5 +1,4 @@
-# ui.R
-library(dplyr)
+# ui.Rlibrary(dplyr)
 library(plotly)
 library(shiny)
 
@@ -85,24 +84,24 @@ shinyUI(fluidPage(
              tabPanel("Scatter Plot",
                       sidebarLayout(
                         sidebarPanel(
-                          "Pick Which Regression Lines You Want to See",
+                          "Pick Which Regression Lines You Wish to Compare",
                           checkboxGroupInput("xvar",
                                              label = "Choose from 3 Characteristics",
-                                             choices = list("Education" = "edu_corr",
-                                                            "Income Inequality" = "income_corr",
-                                                            "Racial Diversity" = "div_corr"),
-                                             selected = "edu_corr")
+                                             choices = list("Education" = "Education",
+                                                            "Income Inequality" = "Income Inequality",
+                                                            "Racial Diversity" = "Racial Diversity"),
+                                             selected = "Education")
                         ),
                         mainPanel(plotlyOutput("scatter"))
                       ),
                       "This graph shows the overall trend between the variable(s) selected
-             and the rate of hate crimes for each state. Check the boxes to 
-             compare variables. See if you can find the answers to these 
-             questions: 
-             1. What kind of trend do you see between education and the rate
-             of hate crimes?
-             2. Can you accurately guess where your state falls on the trend line?
-             Hover over each circle to check your guess!"
+                      and the rate of hate crimes for each state. Check the boxes to 
+                      compare variables. See if you can find the answers to these 
+                      questions: 
+                      1. What kind of trend do you see between education and the rate
+                      of hate crimes?
+                      2. Can you accurately guess where your state falls on the trend line?
+                      Hover over each circle to check your guess!"
              )
-  )
-))
+             )
+             ))

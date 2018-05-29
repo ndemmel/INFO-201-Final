@@ -48,7 +48,7 @@ shinyServer(function(input, output) {
     barplot(
       both_state_crimes,
       names.arg = c(input$state1, input$state2),
-      xlab = "State", ylab = "Average annual hate crimes per 100,000 people",
+      xlab = "State", ylab = "Average Annual Hate Crimes per 100K Population",
       ylim = c(0, 12), col = c("Light Blue", "Coral"),
       main = "Number of Hate Crimes per 100,000 by State"
     )
@@ -57,13 +57,22 @@ shinyServer(function(input, output) {
   })
   
   output$scatter <- renderPlotly({
-    interactive_scatterplot <- plot_ly(hate_crimes_minus_DC,
-                                       x = input$xvar,
-                                       y = hate_crimes_minus_DC$avg_hatecrimes_per_100k_fbi),
-                                       type = "scatter",
-                                       mode = "lines" %>%
-      layout(title = paste0(input$xvar, " vs Hate Crime Rate")) %>%
-      add_trace(
-        text = ~state)
+    
+    scatterplot <- plot_ly(hate_crimes_minus_DC,
+                           x = hate_crimes_minus_DC[[input$xvar]],
+                           y = hate_crimes_minus_DC$avg_hatecrimes_per_100k_fbi,
+                           text = "",
+                           name = input$xvar
+    ) %>% 
+      layout(title = paste0(input$xvar, " vs. Rate of Hate Crimes"),
+             xaxis = list(title = "Correlation Coefficient"),
+             yaxis = list(title = "Avg Annual Hate Crimes per 100K Population")
+      ) %>%
+      add_markers(
+        text = ~paste(hate_crimes_minus_DC$state,
+                      "<br>Correlation Coefficient: ", round(hate_crimes_minus_DC[[input$xvar]],4),
+                      "<br>Rate of Hate Crimes:", round(hate_crimes_minus_DC$avg_hatecrimes_per_100k_fbi,4))
+      )
   })
+  
 })
