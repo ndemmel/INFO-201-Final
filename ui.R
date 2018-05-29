@@ -9,7 +9,7 @@ source("analysis.R")
 # create Shiny UI
 shinyUI(fluidPage(
   navbarPage("Factors Influencing Rate of Hate Crimes",
-    inverse = TRUE,
+    inverse = TRUE, fluid = FALSE,
     tags$link(rel = "stylesheet", type = "text/css", href = "style.css"),
 
     tags$style(type = "text/css", "a{color: #800000;}"),
@@ -40,8 +40,8 @@ shinyUI(fluidPage(
             ),
             selected = "avg_hatecrimes_per_100k_fbi"
           )
-        )
-      ),
+        ),
+        uiOutput("maps")),
 
       # SECOND TAB
       tabPanel(

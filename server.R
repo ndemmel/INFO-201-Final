@@ -6,11 +6,15 @@ library(knitr)
 
 shinyServer(function(input, output) {
   output$introduction <- renderUI({
-    HTML(markdown::markdownToHTML(knit('introduction.md', quiet = TRUE)))
+    HTML(markdown::markdownToHTML(knit('markdown/introduction.md', quiet = TRUE)))
+  })
+  
+  output$maps <- renderUI({
+    HTML(markdown::markdownToHTML(knit('markdown/maps.md', quiet = TRUE)))
   })
   
   output$scatterinfo <- renderUI({
-    HTML(markdown::markdownToHTML(knit('scatterplot.Rmd', quiet = TRUE)))
+    HTML(markdown::markdownToHTML(knit('markdown/scatterplot.md', quiet = TRUE)))
   })
   
   output$interactive <- renderPlotly({
