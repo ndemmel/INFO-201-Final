@@ -45,4 +45,5 @@ crimes_states <- mutate(hate_crimes_minus_DC, locations = c(
   "UT", "VT", "VA", "WA", "WV", "WI", "WY"))
 
 # Scale weeks on rate of hate crimes to match avg annual
-hate_crimes <- hate_crimes %>% mutate(hate_crimes_per_100k_splc = hate_crimes_per_100k_splc * 36.5)
+crimes_states <- crimes_states %>%
+  mutate(avg_hatecrimes_per_100k_fbi = avg_hatecrimes_per_100k_fbi / 36.5)
