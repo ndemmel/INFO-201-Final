@@ -12,11 +12,15 @@ shinyUI(fluidPage(
     inverse = TRUE,
     tags$link(rel = "stylesheet", type = "text/css", href = "style.css"),
 
-    tabsetPanel(
+    tags$style(type = "text/css", "a{color: #800000;}"),
+    
+    tabsetPanel(type = "tabs",
       # INTRODUCTION
       tabPanel(
         "Introduction",
-        mainPanel(uiOutput("introduction"))
+        br(), uiOutput("introduction"),
+        img(src="no-more-hate-crimes.jpg", align = "center", width = 200, height = 145,
+            style = "display: block; margin-left: auto; margin-right: auto;")
       ),
 
       # FIRST TAB
