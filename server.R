@@ -8,7 +8,7 @@ shinyServer(function(input, output) {
   output$introduction <- renderUI({
     HTML(markdown::markdownToHTML(knit('introduction.md', quiet = TRUE)))
   })
-  
+
   output$interactive <- renderPlotly({
     # map projection/options
     g <- list(
@@ -25,7 +25,7 @@ shinyServer(function(input, output) {
         color = ~ crimes_states[[input$beforeOrAfter]],
         colors = "Purples"
       ) %>%
-      colorbar(title = "Number Per 100K Population") %>%
+      colorbar(title = "Number Per 100K Population", limits = c(0, 0.9)) %>%
       layout(
         title = "Average Annual Number of Hate Crimes by State per 100,000 People",
         geo = g
@@ -53,7 +53,7 @@ shinyServer(function(input, output) {
     text(0.7, 6, paste0("(", sum_state_one_crimes, ")"))
     text(1.9, 6, paste0("(", sum_state_two_crimes, ")"))
   })
-  
+
   # output$scatter <- renderPlotly({
   #   scatterplot <- plot_ly(hate_crimes_minus_DC,
   #     x = hate_crimes_minus_DC[[input$xvar]],
@@ -71,9 +71,9 @@ shinyServer(function(input, output) {
   #                     "<br>Rate of Hate Crimes:", round(hate_crimes_minus_DC$avg_hatecrimes_per_100k_fbi,4))
   #     )
   # })
-  
+
   output$scatter <- renderPlotly({
-    interactive_scatterplot <- 
+    interactive_scatterplot <-
       if(match('Racial Diversity', input$xvar)) {
         plot_ly(hate_crimes_minus_DC,
                 x = hate_crimes_minus_DC$`Racial Diversity`,
@@ -120,5 +120,5 @@ shinyServer(function(input, output) {
           )
       }
   })
-  
+
 })
