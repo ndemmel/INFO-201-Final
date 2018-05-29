@@ -116,18 +116,11 @@ shinyUI(fluidPage(
 
       tabPanel(
         "Conclusion",
-        h3("~Correlation is not Causation~", align = "Center"),
-        p("Using a dataset on hate crimes and various demographic factors available to us on github, our team aimed to answer the following questions through our visualizations:"),
-        p("1. Do income inequality, education, and racial diversity each influence the rate of hate crimes in a state?"),
-        p("2. Which state has the highest rate of hate crimes per 100,000 people?"),
-        p("3. Is there any correlation between the 2016 general election and a   
-          change in the average number of hate crimes per state?"),
-        p("While our 3 visualizations; 2016 Election, Compare States, and Demographic Facotors revealed significant trends and correlations regarding hate crimes, 
-          the one thing to remember is that correlations are not the same as causations. "),
-
-        h3("Our Team", align = "Center"),
+        br(), uiOutput("conclusion"),
+        h3("~Our Team~", align = "Center"),
         img(
-          src = "Team.jpg", width = 900
+          src = "Team.jpg", height = 205, width = 1000, 
+          style = "display: block; margin-left: auto; margin-right: auto;"
         )
       )
     )
