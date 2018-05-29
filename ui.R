@@ -79,7 +79,9 @@ shinyUI(fluidPage(
       )
     ),
     
+
     # THIRD TAB
+
     tabPanel("Scatter Plot",
              sidebarLayout(
                sidebarPanel(
@@ -93,8 +95,7 @@ shinyUI(fluidPage(
                  ),
                mainPanel(plotlyOutput("scatter"))
              ),
-             "use HTML or CSS to center this line in the middle of the page.
-             This graph shows the overall trend between the variable(s) selected
+             "This graph shows the overall trend between the variable(s) selected
              and the rate of hate crimes for each state. Check the boxes to 
              compare variables. See if you can find the answers to these 
              questions: 
@@ -105,4 +106,3 @@ shinyUI(fluidPage(
     )
   )
 ))
-
