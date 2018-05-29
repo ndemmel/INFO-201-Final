@@ -4,6 +4,7 @@ library(dplyr)
 
 # hate crimes
 hate_crimes <- read.csv("hate_crimes.csv", stringsAsFactors = FALSE)
+
 #hate_crimes[is.na(hate_crimes)] <- 0
 
 hate_crimes_minus_DC <- hate_crimes[-9, ]

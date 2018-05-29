@@ -6,7 +6,19 @@ library(knitr)
 
 shinyServer(function(input, output) {
   output$introduction <- renderUI({
-    HTML(markdown::markdownToHTML(knit('introduction.md', quiet = TRUE)))
+    HTML(markdown::markdownToHTML(knit('markdown/introduction.md', quiet = TRUE)))
+  })
+
+  output$maps <- renderUI({
+    HTML(markdown::markdownToHTML(knit('markdown/maps.md', quiet = TRUE)))
+  })
+
+  output$scatterinfo <- renderUI({
+    HTML(markdown::markdownToHTML(knit('markdown/scatterplot.md', quiet = TRUE)))
+  })
+
+  output$conclusion <- renderUI({
+    HTML(markdown::markdownToHTML(knit('conclusion.md', quiet = TRUE)))
   })
 
   output$barplot_info <- renderUI({
@@ -22,6 +34,7 @@ shinyServer(function(input, output) {
       lakecolor = toRGB("white")
     )
 
+
     p <- plot_geo(crimes_states, locationmode = "USA-states") %>%
       add_trace(
         z = ~ crimes_states[[input$beforeOrAfter]],
@@ -29,6 +42,7 @@ shinyServer(function(input, output) {
         color = ~ crimes_states[[input$beforeOrAfter]],
         colors = "Purples"
       ) %>%
+
       colorbar(title = "Number Per 100K Population", limits = c(0, 0.9)) %>%
       layout(
         title = "Average Annual Number of Hate Crimes by State per 100,000 People",
@@ -58,6 +72,7 @@ shinyServer(function(input, output) {
     text(1.9, 6, paste0("(", sum_state_two_crimes, ")"))
   })
 
+
   # output$scatter <- renderPlotly({
   #   scatterplot <- plot_ly(hate_crimes_minus_DC,
   #     x = hate_crimes_minus_DC[[input$xvar]],
@@ -76,6 +91,7 @@ shinyServer(function(input, output) {
   #     )
   # })
 
+
   output$scatter <- renderPlotly({
     interactive_scatterplot <-
       if(match('Racial Diversity', input$xvar)) {
@@ -93,6 +109,7 @@ shinyServer(function(input, output) {
                           "<br>Rate of Hate Crimes:", round(hate_crimes_minus_DC$avg_hatecrimes_per_100k_fbi,4))
           )
       }
+
       if(match('Education', input$xvar)) {
         plot_ly(hate_crimes_minus_DC,
                 x = hate_crimes_minus_DC$Education,
