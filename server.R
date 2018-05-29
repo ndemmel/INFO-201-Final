@@ -17,7 +17,7 @@ shinyServer(function(input, output) {
       showlakes = TRUE,
       lakecolor = toRGB("white")
     )
-
+    
     p <- plot_geo(hate_crimes, locationmode = "USA-states") %>%
       add_trace(
         z = hate_crimes[[input$beforeOrAfter]],
@@ -33,7 +33,7 @@ shinyServer(function(input, output) {
         geo = g
       )
   })
-
+  
   output$comparison <- renderPlot({
     state_one_crimes <- hate_crimes %>%
       filter(state == input$state1) %>%
@@ -44,7 +44,7 @@ shinyServer(function(input, output) {
       select(avg_hatecrimes_per_100k_fbi)
     sum_state_two_crimes <- sum(state_two_crimes)
     both_state_crimes <- c(sum_state_one_crimes, sum_state_two_crimes)
-
+    
     barplot(
       both_state_crimes,
       names.arg = c(input$state1, input$state2),
@@ -59,10 +59,11 @@ shinyServer(function(input, output) {
   output$scatter <- renderPlotly({
     interactive_scatterplot <- plot_ly(hate_crimes_minus_DC,
                                        x = input$xvar,
-                                       y = hate_crimes_minus_DC$avg_hatecrimes_per_100k_fbi) %>%
+                                       y = hate_crimes_minus_DC$avg_hatecrimes_per_100k_fbi),
+                                       type = "scatter",
+                                       mode = "lines" %>%
       layout(title = paste0(input$xvar, " vs Hate Crime Rate")) %>%
       add_trace(
         text = ~state)
   })
-  
 })

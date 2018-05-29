@@ -1,11 +1,12 @@
+@import url("https://fonts.googleapis.com/css?family=Merriweather");
+
 h3 {
   text-align: center;
 }
 
-/* * {
-  font-family: "Helvetica";
+* {
+  font-family: "Merriweather";
 }
-*/
 
 body {
   background-color: Black;
