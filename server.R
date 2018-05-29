@@ -8,7 +8,11 @@ shinyServer(function(input, output) {
   output$introduction <- renderUI({
     HTML(markdown::markdownToHTML(knit('introduction.md', quiet = TRUE)))
   })
-
+  
+  output$scatterinfo <- renderUI({
+    HTML(markdown::markdownToHTML(knit('scatterplot.Rmd', quiet = TRUE)))
+  })
+  
   output$interactive <- renderPlotly({
     # map projection/options
     g <- list(
@@ -17,6 +21,7 @@ shinyServer(function(input, output) {
       showlakes = TRUE,
       lakecolor = toRGB("white")
     )
+    
 
     p <- plot_geo(crimes_states, locationmode = "USA-states") %>%
       add_trace(
@@ -25,13 +30,14 @@ shinyServer(function(input, output) {
         color = ~ crimes_states[[input$beforeOrAfter]],
         colors = "Purples"
       ) %>%
+
       colorbar(title = "Number Per 100K Population", limits = c(0, 0.9)) %>%
       layout(
         title = "Average Annual Number of Hate Crimes by State per 100,000 People",
         geo = g
       )
   })
-
+  
   output$comparison <- renderPlot({
     state_one_crimes <- hate_crimes %>%
       filter(state == input$state1) %>%
@@ -42,7 +48,7 @@ shinyServer(function(input, output) {
       select(avg_hatecrimes_per_100k_fbi)
     sum_state_two_crimes <- sum(state_two_crimes)
     both_state_crimes <- c(sum_state_one_crimes, sum_state_two_crimes)
-
+    
     barplot(
       both_state_crimes,
       names.arg = c(input$state1, input$state2),
@@ -53,6 +59,7 @@ shinyServer(function(input, output) {
     text(0.7, 6, paste0("(", sum_state_one_crimes, ")"))
     text(1.9, 6, paste0("(", sum_state_two_crimes, ")"))
   })
+
 
   # output$scatter <- renderPlotly({
   #   scatterplot <- plot_ly(hate_crimes_minus_DC,
@@ -72,6 +79,7 @@ shinyServer(function(input, output) {
   #     )
   # })
 
+
   output$scatter <- renderPlotly({
     interactive_scatterplot <-
       if(match('Racial Diversity', input$xvar)) {
@@ -89,6 +97,7 @@ shinyServer(function(input, output) {
                           "<br>Rate of Hate Crimes:", round(hate_crimes_minus_DC$avg_hatecrimes_per_100k_fbi,4))
           )
       }
+    
       if(match('Education', input$xvar)) {
         plot_ly(hate_crimes_minus_DC,
                 x = hate_crimes_minus_DC$Education,

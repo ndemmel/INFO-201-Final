@@ -107,16 +107,7 @@ shinyUI(fluidPage(
               selected = "Education"
             )
           ),
-          mainPanel(plotlyOutput("scatter"))
-        ),
-        "This graph shows the overall trend between the variable(s) selected
-             and the rate of hate crimes for each state. Check the boxes to
-             compare variables. See if you can find the answers to these
-             questions:
-             1. What kind of trend do you see between education and the rate
-             of hate crimes?
-             2. Can you accurately guess where your state falls on the trend line?
-             Hover over each circle to check your guess!"
+          mainPanel(plotlyOutput("scatter"), uiOutput("scatterinfo")))
       ),
 
       # Final Tab
