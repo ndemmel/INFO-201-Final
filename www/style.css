@@ -1,14 +1,17 @@
-@import url("https://fonts.googleapis.com/css?family=Merriweather");
-
 h3 {
   text-align: center;
 }
 
 * {
-  font-family: "Merriweather";
+  font-family: "georgia";
 }
 
 body {
-  background-color: Black;
-  color: LightCoral;
+  background-color: White;
+  color: Black;
+  border-color: White;
+}
+
+p {
+  font-size: 16;
 }
