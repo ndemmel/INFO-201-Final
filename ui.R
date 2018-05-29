@@ -13,7 +13,8 @@ shinyUI(fluidPage(
     tags$link(rel = "stylesheet", type = "text/css", href = "style.css"),
 
     # INTRODUCTION
-    tabPanel("Introduction", mainPanel(uiOutput("introduction"))),
+    tabPanel("Introduction", 
+             mainPanel(uiOutput("introduction"))),
 
     # FIRST TAB
     tabPanel(
@@ -37,9 +38,11 @@ shinyUI(fluidPage(
 
     # SECOND TAB
     tabPanel(
-      "Comparison Between States",
+      "Compare States",
+      tags$h3("Compare Rate of Hate Crimes Between Two States"),
+      br(),
       sidebarPanel(
-        selectInput("state1", "Select First State to Compare:",
+        selectInput("state1", "Select First State:",
           choices = list(
             "Alabama", "Alaska", "Arizona", "Arkansas", "California",
             "Colorado", "Connecticut", "Delaware",
@@ -57,7 +60,7 @@ shinyUI(fluidPage(
           ),
           selected = "District of Columbia"
         ),
-        selectInput("state2", "Select Second State to Compare:",
+        selectInput("state2", "Select Second State:",
           choices = list(
             "Alabama", "Alaska", "Arizona", "Arkansas", "California",
             "Colorado", "Connecticut", "Delaware",
@@ -82,10 +85,12 @@ shinyUI(fluidPage(
     ),
 
     # THIRD TAB
-    tabPanel("Scatter Plot",
+    tabPanel("Demographic Factors",
+             tags$h3(""),
+             br(),
              sidebarLayout(
                sidebarPanel(
-                 "Pick Which Regression Lines You Wish to Compare",
+                 "Select Regression Lines You Wish to Compare",
                  checkboxGroupInput("xvar",
                   label = "Choose from 3 Characteristics",
                   choices = list("Education" = "Education",

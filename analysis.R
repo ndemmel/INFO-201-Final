@@ -4,6 +4,7 @@ library(dplyr)
 
 # hate crimes
 hate_crimes <- read.csv("hate_crimes.csv", stringsAsFactors = FALSE)
+#hate_crimes[is.na(hate_crimes)] <- 0
 
 hate_crimes_minus_DC <- hate_crimes[-9, ]
 # Hate Crimes per State
@@ -42,3 +43,6 @@ crimes_states <- mutate(hate_crimes_minus_DC, locations = c(
   "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM",
   "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX",
   "UT", "VT", "VA", "WA", "WV", "WI", "WY"))
+
+# Scale weeks on rate of hate crimes to match avg annual
+hate_crimes <- hate_crimes %>% mutate(hate_crimes_per_100k_splc = hate_crimes_per_100k_splc * 36.5)
