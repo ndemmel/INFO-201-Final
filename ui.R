@@ -12,11 +12,13 @@ shinyUI(fluidPage(
     inverse = TRUE,
     tags$link(rel = "stylesheet", type = "text/css", href = "style.css"),
 
-    tabsetPanel(
+    tags$style(type = "text/css", "a{color: #800000;}"),
+    
+    tabsetPanel(type = "tabs",
       # INTRODUCTION
       tabPanel(
         "Introduction",
-        mainPanel(uiOutput("introduction"))
+        br(), uiOutput("introduction")
       ),
 
       # FIRST TAB

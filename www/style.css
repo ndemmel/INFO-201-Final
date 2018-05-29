@@ -12,3 +12,11 @@ body {
   color: Black;
   border-color: White;
 }
+
+.activeTab  {
+    color: green; 
+}
+
+.inactiveTab { 
+    color:gray; 
+}
