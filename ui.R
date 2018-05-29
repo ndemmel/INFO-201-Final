@@ -83,12 +83,13 @@ shinyUI(fluidPage(
     tabPanel("Scatter Plot",
              sidebarLayout(
                sidebarPanel(
-                 "Pick Which Regression Lines You Want to See",
+                 "Pick Which Regression Lines You Wish to Compare",
                  checkboxGroupInput("xvar",
                   label = "Choose from 3 Characteristics",
-                  choices = list("Education" = "edu_corr",
-                                 "Income Inequality" = "income_corr",
-                                 "Racial Diversity" = "div_corr"))
+                  choices = list("Education" = "Education",
+                                 "Income Inequality" = "Income Inequality",
+                                 "Racial Diversity" = "Racial Diversity"),
+                  selected = "Education")
                  ),
                mainPanel(plotlyOutput("scatter"))
              ),
