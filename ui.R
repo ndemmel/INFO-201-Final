@@ -79,9 +79,7 @@ shinyUI(fluidPage(
       )
     ),
     
-
     # THIRD TAB
-
     tabPanel("Scatter Plot",
              sidebarLayout(
                sidebarPanel(
