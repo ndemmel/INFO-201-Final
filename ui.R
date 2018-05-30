@@ -108,7 +108,7 @@ shinyUI(fluidPage(
               selected = "Education"
             )
           ),
-          mainPanel(plotlyOutput("scatter"), uiOutput("scatterinfo")))
+          mainPanel(plotlyOutput("scatter"), br(), uiOutput("scatterinfo")))
       ),
 
       # CONCLUSION
@@ -117,7 +117,7 @@ shinyUI(fluidPage(
         br(), uiOutput("conclusion"),
         h3("Our Team", align = "Center"),
         img(
-          src = "Team.jpg", height = 205, width = 1000, 
+          src = "Team.jpg", height = 190, width = 1000, 
           style = "display: block; margin-left: auto; margin-right: auto;"
         )
       )

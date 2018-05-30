@@ -18,11 +18,11 @@ shinyServer(function(input, output) {
   })
 
   output$conclusion <- renderUI({
-    HTML(markdown::markdownToHTML(knit('conclusion.md', quiet = TRUE)))
+    HTML(markdown::markdownToHTML(knit('markdown/conclusion.md', quiet = TRUE)))
   })
 
   output$barplot_info <- renderUI({
-    HTML(markdown::markdownToHTML(knit('barplot_info.md', quiet = TRUE)))
+    HTML(markdown::markdownToHTML(knit('markdown/barplot_info.md', quiet = TRUE)))
   })
 
   output$interactive <- renderPlotly({
