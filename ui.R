@@ -1,20 +1,18 @@
-# ui.R
 library(dplyr)
 library(plotly)
 library(shiny)
 
-# access datasets
+# Accesses datasets and other data.
 source("analysis.R")
 
-# create Shiny UI
+# Defines a fluidPage. Uses external .css file to style application.
 shinyUI(fluidPage(
-  navbarPage("Factors Influencing Rate of Hate Crimes",
+  navbarPage("Factors Influencing Number of Hate Crimes",
     inverse = FALSE,
     tags$link(rel = "stylesheet", type = "text/css", href = "style.css"),
     tags$style(type = "text/css", "a{color: #191970;}", "bold"),
     tabsetPanel(
       type = "tabs",
-      # INTRODUCTION
       # Defines introduction tab, outputs text and image.
       tabPanel(
         "Introduction",
@@ -26,17 +24,18 @@ shinyUI(fluidPage(
       ),
 
       # Defines the second tab, and one widget in the output.
+      # Widget is two buttons that allows user to change output.
       # Outputs the plot and information.
       tabPanel(
-        "2016 Election",
-        tags$h3("Affect of the 2016 Presidential Election on Rate of Hate
+        "2016 Election Affect",
+        tags$h3("Affect of the 2016 Presidential Election on Number of Hate
                 Crimes"),
         br(),
         plotlyOutput("interactive"),
         fluidRow(
           column(3,
             radioButtons("beforeOrAfter",
-              "Select Timeframe",
+              "Select Timeframe:",
               choices = list(
                 "Before 2016 Election" = "avg_hatecrimes_per_100k_fbi",
                 "After 2016 Election" = "hate_crimes_per_100k_splc"
@@ -45,23 +44,24 @@ shinyUI(fluidPage(
             selected = "avg_hatecrimes_per_100k_fbi"
           )
         ),
+        # Outputs the choropleth map.
         uiOutput("maps")
       ),
 
       # Defines the third tab, and two widgets in the sidebar.
       # Outputs the plot and information on the main panel.
       tabPanel(
-        "Compare States",
+        "Compare Crimes by State",
         tags$h3("Compare Average Annual Number of Hate Crimes Between
                 Two States (2010-2015)"),
         br(),
         sidebarPanel(
-          # Creates drop-down menu to allow user to select state.
+          # Creates drop-down menu to allow user to select first state.
           selectInput("state1", "Select First State:",
             choices = states,
             selected = "District of Columbia"
           ),
-          # Creates drop-down menu to allow user to select state.
+          # Creates drop-down menu to allow user to select second state.
           selectInput("state2", "Select Second State:",
             choices = states,
             selected = "Wyoming"
@@ -82,11 +82,11 @@ shinyUI(fluidPage(
         br(),
         sidebarLayout(
           sidebarPanel(
-            "Select Regression Lines You Wish to Compare",
+            "",
             # Creates a checkbox menu so the user can see up to 3 graphs
             # at once
             checkboxGroupInput("xvar",
-              label = "Select Regression Lines You Wish to Compare",
+              label = "Select Regression Lines You Wish to Compare:",
               choices = list(
                 "Education" = "Education",
                 "Income Inequality" = "Income Inequality",
@@ -101,7 +101,6 @@ shinyUI(fluidPage(
         )
       ),
 
-      # CONCLUSION
       # Defines conclusion tab, outputs text and image.
       tabPanel(
         "Conclusion",
