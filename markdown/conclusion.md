@@ -6,7 +6,7 @@ Our data visualization aimed to answer the following questions of hate crimes:
 
 3. Is there any correlation between the 2016 general election and a change in the average number of hate crimes per state?
 
-The dataset we used from **FiveThirtyEight** (accessible on [GitHub](https://github.com/fivethirtyeight/data/tree/master/hate-crimes)) was a collection of data from the following sources:  
+The dataset we used from **FiveThirtyEight** (accessible on [GitHub](https://github.com/fivethirtyeight/data/tree/master/hate-crimes)) was a collection of data from the following sources:
 
 [Kaiser Family Foundation](https://www.kff.org/other/state-indicator/median-annual-income/?currentTimeframe=0&sortModel=%7B%22colId%22:%22Location%22,%22sort%22:%22asc%22%7D)  
 [Kaiser Family Foundation](https://www.kff.org/other/state-indicator/unemployment-rate/?currentTimeframe=0&sortModel=%7B%22colId%22:%22Location%22,%22sort%22:%22asc%22%7D)  
@@ -18,11 +18,17 @@ The dataset we used from **FiveThirtyEight** (accessible on [GitHub](https://git
 [FBI](https://ucr.fbi.gov/hate-crime)  
 [United States Elections Project](http://www.electproject.org/2016g)  
 
-While our 3 visualizations; "2016 Elections," "Compare States" and "Demograohic Factors" revealed significant trends and correlations regarding hate crimes, we also need to be aware of some limitations.
-- Correlations are not causations.  
+While our 3 visualizations; "2016 Elections," "Compare States" and "Demograohic Factors" revealed significant trends and correlations regarding hate crimes, we also need to be aware of some limitations with the dataset. 
+- Correlations are not causations.
 
 *Just because there is a trend between 2 variables does not necessarily mean the 2 variables are directly related.*
-- Reverse causality is not considered.  
+
+The sheer number of factors that could potentially influence the rate of hate crimes in a country negates any sort of causal relationships that could be derived from the data. Although the dataset was thorough in its inclusion of demographic data, there are many more reasons people would be more likely to commit hatecrimes than just lacking a high school diploma or belonging to the working class.
+
+- Correlation Coefficients
+
+To calculate the coefficients, we divided each of our variables of interest (Education, Racial Diversity, and Income Inequality) by the average number of hatecrimes per 100,000 people in a year. The numbers derived from this analysis represent each variable's closeness to the average rate of hatecrimes. 
+- Reverse causality is not considered.
 
 *The relationship can also be a two-way relationship, with causality going both ways. This makes it harder to derive implications.*
 

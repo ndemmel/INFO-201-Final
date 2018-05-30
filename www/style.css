@@ -9,13 +9,13 @@ h3 {
 }
 
 .nav-tabs {
-  background-color: Gray;
+  background-color: White;
 }
 
 .image {
   position: fixed;
   right: 0;
-  bottom: 0; /* is it like center align or what? */ 
+  bottom: 0;
   z-index: 9999;
 }
 body {

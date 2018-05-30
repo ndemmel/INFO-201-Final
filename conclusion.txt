@@ -22,6 +22,13 @@ While our 3 visualizations; "2016 Elections," "Compare States" and "Demograohic 
 - Correlations are not causations.  
 
 *Just because there is a trend between 2 variables does not necessarily mean the 2 variables are directly related.*
+
+The sheer number of factors that could potentially influence the rate of hate crimes in a country negates any sort of causal relationships that could
+be derived from the data. Although the dataset was thorough in its inclusion of demographic data, there are many more reasons people would be more likely to commit hatecrimes than just lacking a high school diploma or belonging to the working class.
+
+- Correlation Coefficients
+
+To calculate the coefficients, we divided each of our variables of interest (Education, Racial Diversity, and Income Inequality) by the average number of hatecrimes per 100,000 people in a year. The numbers derived from this analysis represent each variable's closeness  the average rate of hatecrimes. 
 - Reverse causality is not considered.  
 
 *The relationship can also be a two-way relationship, with causality going both ways. This makes it harder to derive implications.*
