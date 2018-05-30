@@ -1,7 +1,7 @@
 While our 3 visualizations, _2016 Elections_, _Compare States_, and _Demographic Factors_ revealed significant trends and correlations regarding hate crimes, we also need to be aware of some limitations of the data.
 
 Interactive Map Data:
-The _Before 2016 Election_ data was taken from the FBI's Uniform Crime Reporting (UCR) Program, which gave the average annual hate crimes per 100K population for each state from 2010-15. The data recorded in this program are crimes reported through law enforcement agencies. The _After 2016 Election_ data was taken from the Southern Poverty Law Center (SPLC), which gave the number hate crimes per 100K for the 10 days after the 2016 Presidential Election (Nov. 9-18, 2016). However, the data recorded by this organization were of all reported crimes (prosecutable) and incidents (non-prosecutable) from citizens. It is extremely important to consider where the data is coming from, and 
+The _Before 2016 Election_ data was taken from the FBI's Uniform Crime Reporting (UCR) Program, which gave the average annual hate crimes per 100K population for each state from 2010-15. The data recorded in this program are crimes reported through law enforcement agencies. The _After 2016 Election_ data was taken from the Southern Poverty Law Center (SPLC), which gave the number hate crimes per 100K for the 10 days after the 2016 Presidential Election (Nov. 9-18, 2016). However, the data recorded by this organization were of all reported crimes (prosecutable) and incidents (non-prosecutable) from citizens. It is extremely important to consider where the data is coming from, and
 
 Demographic Factors Scatterplot:
 
