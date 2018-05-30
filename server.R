@@ -92,8 +92,6 @@ shinyServer(function(input, output) {
                                  color = column,
                                  text = ~paste(hate_crimes_minus_DC$state))
     }
-    
     scatterplot
   })
-  
 })
