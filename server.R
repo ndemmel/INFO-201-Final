@@ -45,7 +45,7 @@ shinyServer(function(input, output) {
 
       colorbar(title = "Number Per 100K Population", limits = c(0, 0.9)) %>%
       layout(
-        title = "Average Annual Number of Hate Crimes by State per 100,000 People",
+        title = "Average Number of Hate Crimes over a 10-Day Period per 100,000 People by State",
         geo = g
       )
   })

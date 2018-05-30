@@ -117,7 +117,7 @@ shinyUI(fluidPage(
         br(), uiOutput("conclusion"),
         h3("Our Team", align = "Center"),
         img(
-          src = "Team.jpg", height = 190, width = 1000, 
+          src = "Team.jpg", height = 190, width = 1000,
           style = "display: block; margin-left: auto; margin-right: auto;"
         )
       )
