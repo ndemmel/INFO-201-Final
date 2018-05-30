@@ -45,7 +45,7 @@ shinyServer(function(input, output) {
       showlakes = TRUE,
       lakecolor = toRGB("white")
     )
-    
+
     # Constructs choropleth map using inputs and data.
     p <- plot_geo(crimes_states, locationmode = "USA-states") %>%
       add_trace(
@@ -100,7 +100,8 @@ shinyServer(function(input, output) {
       text = ""
     ) %>%
       layout(
-        title = paste0("Impact of Social Factors on Rate of Hate Crimes"),
+        title = paste0("Impact of Demographic Factors
+                       on Rate of Hate Crimes"),
         xaxis = list(title = "Correlation Coefficient", range = c(0, 3)),
         yaxis = list(title = "Avg Annual Hate Crimes per 100K Population"),
         showlegend = TRUE
