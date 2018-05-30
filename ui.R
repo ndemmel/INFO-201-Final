@@ -102,9 +102,8 @@ shinyUI(fluidPage(
         br(),
         sidebarLayout(
           sidebarPanel(
-            "Select Regression Lines You Wish to Compare",
             checkboxGroupInput("xvar",
-              label = "Choose from 3 Characteristics",
+              label = "Select Regression Lines You Wish to Compare",
               choices = list(
                 "Education" = "Education",
                 "Income Inequality" = "Income Inequality",

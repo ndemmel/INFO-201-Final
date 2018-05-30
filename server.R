@@ -26,6 +26,7 @@ shinyServer(function(input, output) {
     HTML(markdown::markdownToHTML(knit('markdown/barplot_info.md', quiet = TRUE)))
   })
   
+  # defines and plots choropleth map from UI input
   output$interactive <- renderPlotly({
     # map projection/options
     g <- list(
@@ -35,7 +36,6 @@ shinyServer(function(input, output) {
       lakecolor = toRGB("white")
     )
     
-    
     p <- plot_geo(crimes_states, locationmode = "USA-states") %>%
       add_trace(
         z = ~ crimes_states[[input$beforeOrAfter]],
@@ -43,16 +43,16 @@ shinyServer(function(input, output) {
         color = ~ crimes_states[[input$beforeOrAfter]],
         colors = "Purples"
       ) %>%
-      
-      colorbar(title = "Number Per 100K Population", limits = c(0, 0.9)) %>%
+      colorbar(title = "Number Per 100K Population", limits = c(0, 0.9)
+      ) %>%
       layout(
         title = "Average Number of Hate Crimes over a 10-Day Period per 100,000 People by State",
         geo = g
       )
   })
 
-  # Defines output and produces a graphical
-  # plot that can be displayed in the UI.
+  # defines output and produces a graphical bar
+  # plot that can be displayed in the UI
   output$comparison <- renderPlot({
     # Takes input from widgets, then organizes
     # and filters data from hate_crimes dataset.
@@ -66,7 +66,7 @@ shinyServer(function(input, output) {
     sum_state_two_crimes <- sum(state_two_crimes)
     both_state_crimes <- c(sum_state_one_crimes, sum_state_two_crimes)
 
-    # Constructs barplot using inputs and data.
+    # constructs barplot using inputs and data.
     barplot(
       both_state_crimes,
       names.arg = c(input$state1, input$state2),
@@ -79,6 +79,10 @@ shinyServer(function(input, output) {
   })
 
   output$scatter <- renderPlotly({
+    # if no input selected
+    # avoids error
+    if (length(input$xvar) == 0) return(NULL)
+    
     scatterplot <- plot_ly(hate_crimes_minus_DC,
                            x = hate_crimes_minus_DC[[input$xvar[1]]],
                            y = hate_crimes_minus_DC$avg_hatecrimes_per_100k_fbi,

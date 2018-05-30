@@ -12,7 +12,7 @@ While our visualizations, _2016 Elections_, _Compare States_, and _Demographic F
   <br><br>
 </p>
 
-In addition, it is imperative to note that **correlation does not imply causation**. An observed trend between 2 variables does not necessarily mean the 2 variables are directly related. Especially since this is an extremely complex social situation, it would be an oversimplification to conclude that income inequality or level of education, for instance, have sole proportional impact on the rate of hate crimes in a state.
+In addition, it is imperative to note that **correlation does not imply causation**. An observed trend between two variables does not necessarily mean the two variables are directly related. Especially since this is an extremely complex social situation, it would be an oversimplification to conclude that income inequality or level of education, for instance, have sole proportional impact on the rate of hate crimes in a state.
 
 Deriving policy implications just from our visualizations can be a bit tricky considering these limitations above. Instead, our hope is that our visualizations provoke the need for further action, including further research, regarding how to reduce the number of hate crimes.
 

@@ -1,6 +1,14 @@
+\* 'Before 2016 Election': Hawaii appears white and has no hovertext due to flaws in the dataset.
+
+\*'After 2016 Election': Hawaii, North Dakota, South Dakota, and Wyoming appear white and have no hovertext due to flaws in the dataset.
+
 The choropleth map above shows the distribution of reported hate crimes before and after the 2016 presidential election. It is important to focus on the shading, rather than the data values.
 
 - Which states' rate of hate crimes increased the most after the election? Keep in mind, there may be other influential factors, as well.
+
+- Can you brainstorm any demographic factors that might be significant in the change in particular states?
+
+- Did any states' shift surprise you? If so, research and see if you can find out why.
 
 ***
 While viewing these visualizations, it is important to note the source from which each set of data originated.

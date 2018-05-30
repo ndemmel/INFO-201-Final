@@ -2,23 +2,18 @@
 # manipulate data to create data frames for visualizations
 library(dplyr)
 
-# hate crimes
+# hate crimes dataset
 hate_crimes <- read.csv("hate_crimes.csv", stringsAsFactors = FALSE)
 
-#hate_crimes[is.na(hate_crimes)] <- 0
-
 hate_crimes_minus_DC <- hate_crimes[-9, ]
-# Hate Crimes per State
 
-# trying max(hate_crimes_minus_DC$avg_hatecrimes_per_100k_fbi) didn't work so I
-# cheated vvv)
+## Hate Crimes per State
 worst_state_frame <- subset(hate_crimes_minus_DC, state == "Massachusetts")
 
 # gives the string "Massachusetts" as a value
 worst_state <- worst_state_frame$state
 
-# Factors Influencing Rate of Hate Crimes
-
+## Calculate Correlation Coefficients
 # affect of income inequality on rate of hate crimes
 hate_crimes_minus_DC <- mutate(hate_crimes_minus_DC, income_corr = gini_index
 / avg_hatecrimes_per_100k_fbi)
@@ -37,7 +32,7 @@ names(hate_crimes_minus_DC)[names(hate_crimes_minus_DC) == 'edu_corr'] <- 'Educa
 names(hate_crimes_minus_DC)[names(hate_crimes_minus_DC) == 'div_corr'] <- 'Racial Diversity'
 names(hate_crimes_minus_DC)[names(hate_crimes_minus_DC) == 'income_corr'] <- 'Income Inequality'
 
-# Adds column with state abbreviations for interactive map
+# adds column with state abbreviations for interactive map
 crimes_states <- mutate(hate_crimes_minus_DC, locations = c(
   "AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE",
   "FL", "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME",
@@ -45,6 +40,7 @@ crimes_states <- mutate(hate_crimes_minus_DC, locations = c(
   "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX",
   "UT", "VT", "VA", "WA", "WV", "WI", "WY"))
 
-# Scale weeks on rate of hate crimes to match avg annual
+# scale avg annual dataset on rate of hate crimes down to match 10 days
+# 365 / 10 = 36.5
 crimes_states <- crimes_states %>%
   mutate(avg_hatecrimes_per_100k_fbi = avg_hatecrimes_per_100k_fbi / 36.5)
