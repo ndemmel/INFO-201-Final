@@ -35,7 +35,8 @@ shinyServer(function(input, output) {
       quiet = TRUE
     )))
   })
-
+  
+  # defines and plots choropleth map from UI input
   output$interactive <- renderPlotly({
     # map projection/options
     g <- list(
@@ -44,7 +45,7 @@ shinyServer(function(input, output) {
       showlakes = TRUE,
       lakecolor = toRGB("white")
     )
-
+    
     p <- plot_geo(crimes_states, locationmode = "USA-states") %>%
       add_trace(
         z = ~ crimes_states[[input$beforeOrAfter]],
@@ -52,7 +53,8 @@ shinyServer(function(input, output) {
         color = ~ crimes_states[[input$beforeOrAfter]],
         colors = "Purples"
       ) %>%
-      colorbar(title = "Number Per 100K Population", limits = c(0, 0.9)) %>%
+      colorbar(title = "Number Per 100K Population", limits = c(0, 0.9)
+      ) %>%
       layout(
         title = "Average Number of Hate Crimes over a 10-Day
         Period per 100,000 People by State",
@@ -60,8 +62,8 @@ shinyServer(function(input, output) {
       )
   })
 
-  # Defines output and produces a graphical
-  # plot that can be displayed in the UI.
+  # defines output and produces a graphical bar
+  # plot that can be displayed in the UI
   output$comparison <- renderPlot({
     # Takes input from widgets, then organizes
     # and filters data from hate_crimes dataset.
@@ -75,7 +77,7 @@ shinyServer(function(input, output) {
     sum_state_two_crimes <- sum(state_two_crimes)
     both_state_crimes <- c(sum_state_one_crimes, sum_state_two_crimes)
 
-    # Constructs barplot using inputs and data.
+    # constructs barplot using inputs and data.
     barplot(
       both_state_crimes,
       names.arg = c(input$state1, input$state2),
@@ -90,11 +92,14 @@ shinyServer(function(input, output) {
   # Defines output and produces a graphical
   # plot that can be displayed in the UI.
   output$scatter <- renderPlotly({
-    # Constructs scatterplot using data from hate_crimes_minus_dc.
-    scatterplot <- plot_ly(hate_crimes_minus_dc,
-      x = hate_crimes_minus_dc[[input$xvar[1]]],
-      y = hate_crimes_minus_dc$avg_hatecrimes_per_100k_fbi,
-      text = ""
+    # if no input selected
+    # avoids error
+    if (length(input$xvar) == 0) return(NULL)
+    
+    scatterplot <- plot_ly(hate_crimes_minus_DC,
+                           x = hate_crimes_minus_DC[[input$xvar[1]]],
+                           y = hate_crimes_minus_DC$avg_hatecrimes_per_100k_fbi,
+                           text = ""
     ) %>%
       layout(
         title = paste0("Significance of Social Factors on Rate of Hate Crimes"),

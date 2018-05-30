@@ -2,7 +2,7 @@
 # manipulate data to create data frames for visualizations
 library(dplyr)
 
-# hate crimes
+# hate crimes dataset
 hate_crimes <- read.csv("hate_crimes.csv", stringsAsFactors = FALSE)
 
 hate_crimes_minus_dc <- hate_crimes[-9, ]
@@ -14,8 +14,7 @@ worst_state_frame <- subset(hate_crimes_minus_dc, state == "Massachusetts")
 # gives the string "Massachusetts" as a value
 worst_state <- worst_state_frame$state
 
-# Factors Influencing Rate of Hate Crimes
-
+## Calculate Correlation Coefficients
 # affect of income inequality on rate of hate crimes
 hate_crimes_minus_dc <- mutate(hate_crimes_minus_dc, income_corr = gini_index /
                                avg_hatecrimes_per_100k_fbi)
@@ -47,7 +46,8 @@ crimes_states <- mutate(hate_crimes_minus_dc, locations = c(
   "UT", "VT", "VA", "WA", "WV", "WI", "WY"
 ))
 
-# Scale weeks on rate of hate crimes to match avg annual
+# scale avg annual dataset on rate of hate crimes down to match 10 days
+# 365 / 10 = 36.5
 crimes_states <- crimes_states %>%
   mutate(avg_hatecrimes_per_100k_fbi = avg_hatecrimes_per_100k_fbi / 36.5)
 
