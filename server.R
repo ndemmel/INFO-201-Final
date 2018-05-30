@@ -84,6 +84,7 @@ shinyServer(function(input, output) {
              yaxis = list(title = "Avg Annual Hate Crimes per 100K Population"),
              showlegend = TRUE
       )
+
     for(column in input$xvar) {
       scatterplot <- add_markers(scatterplot,
                                  x = hate_crimes_minus_DC[[column]],
