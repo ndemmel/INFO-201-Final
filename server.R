@@ -91,7 +91,7 @@ shinyServer(function(input, output) {
   output$scatter <- renderPlotly({
     interactive_scatterplot <-
       if(match('Racial Diversity', input$xvar)) {
-        plot_ly(hate_crimes_minus_DC,
+        return(plot_ly(hate_crimes_minus_DC,
                 x = hate_crimes_minus_DC$`Racial Diversity`,
                 y = hate_crimes_minus_DC$avg_hatecrimes_per_100k_fbi
         ) %>%
@@ -103,11 +103,11 @@ shinyServer(function(input, output) {
             text = ~paste(hate_crimes_minus_DC$state,
                           "<br>Correlation Coefficient: ", round(hate_crimes_minus_DC[[input$xvar]],4),
                           "<br>Rate of Hate Crimes:", round(hate_crimes_minus_DC$avg_hatecrimes_per_100k_fbi,4))
-          )
+          ))
       }
     
       if(match('Education', input$xvar)) {
-        plot_ly(hate_crimes_minus_DC,
+        return(plot_ly(hate_crimes_minus_DC,
                 x = hate_crimes_minus_DC$Education,
                 y = hate_crimes_minus_DC$avg_hatecrimes_per_100k_fbi
         ) %>%
@@ -119,10 +119,10 @@ shinyServer(function(input, output) {
             text = ~paste(hate_crimes_minus_DC$state,
                           "<br>Correlation Coefficient: ", round(hate_crimes_minus_DC[[input$xvar]],4),
                           "<br>Rate of Hate Crimes:", round(hate_crimes_minus_DC$avg_hatecrimes_per_100k_fbi,4))
-          )
+          ))
       }
       if(match('Income Inequality', input$xvar)) {
-        plot_ly(hate_crimes_minus_DC,
+        return(plot_ly(hate_crimes_minus_DC,
                 x = hate_crimes_minus_DC$`Income Inequality`,
                 y = hate_crimes_minus_DC$avg_hatecrimes_per_100k_fbi
         ) %>%
@@ -134,7 +134,7 @@ shinyServer(function(input, output) {
             text = ~paste(hate_crimes_minus_DC$state,
                           "<br>Correlation Coefficient: ", round(hate_crimes_minus_DC[[input$xvar]],4),
                           "<br>Rate of Hate Crimes:", round(hate_crimes_minus_DC$avg_hatecrimes_per_100k_fbi,4))
-          )
+          ))
       }
   })
 
