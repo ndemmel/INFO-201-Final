@@ -5,8 +5,8 @@ account: mshriner
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 350976
-bundleId: 1399970
+bundleId: 1401420
 url: https://mshriner.shinyapps.io/INFO-201-Final/
-when: 1527668655.54628
+when: 1527714982.2025
 asMultiple: FALSE
 asStatic: FALSE

@@ -21,7 +21,7 @@ hate_crimes_minus_dc <- mutate(hate_crimes_minus_dc,
 # Calculates Correlation Coefficient and adds column to hate_crimes_minus_dc.
 # (affect of racial diversity on rate of hate crimes).
 hate_crimes_minus_dc <- mutate(hate_crimes_minus_dc, div_corr = share_non_white
-/ avg_hatecrimes_per_100k_fbi)
+ / avg_hatecrimes_per_100k_fbi)
 
 # Renames corr columns for easy use in visualizations.
 names(hate_crimes_minus_dc)[names(hate_crimes_minus_dc) == "edu_corr"] <-
