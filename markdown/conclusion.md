@@ -7,6 +7,10 @@ Demographic Factors Scatterplot:
 
 In addition, it is imperative to note that **correlation does not imply causation**. An observed trend between 2 variables does not necessarily mean the 2 variables are directly related. Especially since this is an extremely complex social situation, it would be an oversimplification to conclude that income inequality or level of education, for instance, have sole proportional impact on the rate of hate crimes in a state.
 
+Correlation Coefficients:
+
+To calculate the coefficients, we divided each of our variables of interest (Education, Racial Diversity, and Income Inequality) by the average number of hatecrimes per 100,000 people in a year. The numbers derived from this analysis represent each variable's closeness to the average rate of hatecrimes. 
+
 Deriving policy implications just from our visualizations can be a bit tricky considering these limitations above. Instead, our hope is that our visualizations provoke the need for further action, including further research, regarding how to reduce the number of hate crimes.
 
 ***
