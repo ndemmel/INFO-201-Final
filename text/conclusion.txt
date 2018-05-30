@@ -1,0 +1,30 @@
+Our data visualization aimed to answer the following questions of hate crimes:
+
+1. Do the demographic factors of income inequality, education, and racial diversity each significantly influence the rate of hate crimes in a state?
+
+2. Which state has the highest rate of hate crimes per 100,000 people?
+
+3. Is there any correlation between the 2016 general election and a change in the average number of hate crimes per state?
+
+The dataset we used from **FiveThirtyEight** (accessible on [GitHub](https://github.com/fivethirtyeight/data/tree/master/hate-crimes)) was a collection of data from the following sources:  
+
+[Kaiser Family Foundation](https://www.kff.org/other/state-indicator/median-annual-income/?currentTimeframe=0&sortModel=%7B%22colId%22:%22Location%22,%22sort%22:%22asc%22%7D)  
+[Kaiser Family Foundation](https://www.kff.org/other/state-indicator/unemployment-rate/?currentTimeframe=0&sortModel=%7B%22colId%22:%22Location%22,%22sort%22:%22asc%22%7D)  
+[Kaiser Family Foundation](https://www.kff.org/other/state-indicator/unemployment-rate/?currentTimeframe=0&sortModel=%7B%22colId%22:%22Location%22,%22sort%22:%22asc%22%7D)  
+[Kaiser Family Foundation](https://www.kff.org/other/state-indicator/distribution-by-citizenship-status/?currentTimeframe=0&sortModel=%7B%22colId%22:%22Location%22,%22sort%22:%22asc%22%7D)  
+[Kaiser Family Foundation](https://www.kff.org/other/state-indicator/distribution-by-raceethnicity/?currentTimeframe=0&sortModel=%7B%22colId%22:%22Location%22,%22sort%22:%22asc%22%7D)  
+[Census Bureau](https://www.census.gov/prod/2012pubs/p20-566.pdf)  
+[Southern Poverty Law Center](https://www.splcenter.org/20161129/ten-days-after-harassment-and-intimidation-aftermath-election)  
+[FBI](https://ucr.fbi.gov/hate-crime)  
+[United States Elections Project](http://www.electproject.org/2016g)  
+
+While our 3 visualizations; "2016 Elections," "Compare States" and "Demograohic Factors" revealed significant trends and correlations regarding hate crimes, we also need to be aware of some limitations.
+- Correlations are not causations.  
+
+*Just because there is a trend between 2 variables does not necessarily mean the 2 variables are directly related.*
+- Reverse causality is not considered.  
+
+*The relationship can also be a two-way relationship, with causality going both ways. This makes it harder to derive implications.*
+
+
+Deriving policy implications just from our visualizations can be a bit tricky considering these limitations above. Instead, our hope is that our visualizations provoke the need for more actions, including further research, towards hate crimes.
