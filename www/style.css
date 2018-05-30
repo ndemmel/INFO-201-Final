@@ -23,3 +23,8 @@ body {
   color: Black;
   border-color: White;
 }
+
+.indented {
+  padding-left: 20pt;
+  padding-right: 20pt;
+}
