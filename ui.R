@@ -9,17 +9,15 @@ source("analysis.R")
 # create Shiny UI
 shinyUI(fluidPage(
   navbarPage("Factors Influencing Rate of Hate Crimes",
-    inverse = TRUE, fluid = FALSE,
+    inverse = FALSE,
     tags$link(rel = "stylesheet", type = "text/css", href = "style.css"),
-
-    tags$style(type = "text/css", "a{color: #800000;}"),
-    
+    tags$style(type = "text/css", "a{color: #191970;}", "bold"),
     tabsetPanel(type = "tabs",
       # INTRODUCTION
       tabPanel(
         "Introduction",
-        br(), uiOutput("introduction"),
-        img(src="no-more-hate-crimes.jpg", align = "center", width = 200, height = 145,
+        br(), uiOutput("introduction"), br(),
+        img(src="hate-banner.png", align = "center",
             style = "display: block; margin-left: auto; margin-right: auto;")
       ),
 
@@ -110,17 +108,16 @@ shinyUI(fluidPage(
               selected = "Education"
             )
           ),
-          mainPanel(plotlyOutput("scatter"), uiOutput("scatterinfo")))
+          mainPanel(plotlyOutput("scatter"), br(), uiOutput("scatterinfo")))
       ),
 
-      # Final Tab
-
+      # CONCLUSION
       tabPanel(
         "Conclusion",
         br(), uiOutput("conclusion"),
-        h3("~Our Team~", align = "Center"),
+        h3("Our Team", align = "Center"),
         img(
-          src = "Team.jpg", height = 205, width = 1000, 
+          src = "Team.jpg", height = 190, width = 1000, 
           style = "display: block; margin-left: auto; margin-right: auto;"
         )
       )
