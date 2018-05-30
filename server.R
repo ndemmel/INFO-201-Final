@@ -73,28 +73,6 @@ shinyServer(function(input, output) {
     text(1.9, 6, paste0("(", sum_state_two_crimes, ")"))
   })
 
-  
-  # output$scatter <- renderPlotly({
-  #   for(column in input$xvar) {
-  #     scatterplot <- plot_ly(hate_crimes_minus_DC,
-  #                            x = hate_crimes_minus_DC[[column]],
-  #                            y = hate_crimes_minus_DC$avg_hatecrimes_per_100k_fbi,
-  #                            text = ""
-  #     ) %>%
-  #       layout(title = paste0("Significance of Social Factors on Rate of Hate Crimes"),
-  #              xaxis = list(title = "Correlation Coefficient"),
-  #              yaxis = list(title = "Avg Annual Hate Crimes per 100K Population")
-  #     ) %>%
-  #       add_markers(x = hate_crimes_minus_DC[[column]],
-  #                   y = hate_crimes_minus_DC$avg_hatecrimes_per_100k_fbi,
-  #                   color = column, mode = "markers + lines",
-  #                   text = ~paste(hate_crimes_minus_DC$state,
-  #                       "<br>Correlation Coefficient: ", round(hate_crimes_minus_DC[[column]],4),
-  #                       "<br>Rate of Hate Crimes:", round(hate_crimes_minus_DC$avg_hatecrimes_per_100k_fbi,4)))
-  #   }
-  #   scatterplot
-  # })
-
   output$scatter <- renderPlotly({
     scatterplot <- plot_ly(hate_crimes_minus_DC,
       x = hate_crimes_minus_DC[[input$xvar[1]]],
