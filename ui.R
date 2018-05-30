@@ -9,14 +9,16 @@ source("analysis.R")
 # create Shiny UI
 shinyUI(fluidPage(
   navbarPage("Factors Influencing Rate of Hate Crimes",
-    inverse = TRUE,
+    inverse = FALSE,
     tags$link(rel = "stylesheet", type = "text/css", href = "style.css"),
-
-    tabsetPanel(
+    tags$style(type = "text/css", "a{color: #191970;}", "bold"),
+    tabsetPanel(type = "tabs",
       # INTRODUCTION
       tabPanel(
         "Introduction",
-        mainPanel(uiOutput("introduction"))
+        br(), uiOutput("introduction"), br(),
+        img(src="hate-banner.png", align = "center",
+            style = "display: block; margin-left: auto; margin-right: auto;")
       ),
 
       # FIRST TAB
@@ -36,13 +38,13 @@ shinyUI(fluidPage(
             ),
             selected = "avg_hatecrimes_per_100k_fbi"
           )
-        )
-      ),
+        ),
+        uiOutput("maps")),
 
       # SECOND TAB
       tabPanel(
         "Compare States",
-        tags$h3("Compare Rate of Hate Crimes Between Two States"),
+        tags$h3("Compare Average Annual Number of Hate Crimes Between Two States (2010-2015)"),
         br(),
         sidebarPanel(
           selectInput("state1", "Select First State:",
@@ -83,7 +85,8 @@ shinyUI(fluidPage(
           )
         ),
         mainPanel(
-          plotOutput("comparison")
+          plotOutput("comparison"),
+          uiOutput("barplot_info")
         )
       ),
 
@@ -105,23 +108,16 @@ shinyUI(fluidPage(
               selected = "Education"
             )
           ),
-          mainPanel(plotlyOutput("scatter"), uiOutput("scatterinfo")))
+          mainPanel(plotlyOutput("scatter"), br(), uiOutput("scatterinfo")))
       ),
 
-      # Final Tab
-
+      # CONCLUSION
       tabPanel(
         "Conclusion",
-        h1("~Correlation is not Causation~", align = "Center"),
-        p("Using a dataset on hate crimes and various demographic factors available to us on github, our team aimed to answer the following questions in this data visualization:"),
-        p("1. Do income inequality, education, and racial diversity each influence the rate of hate crimes in a state?"),
-        p("2. Which state has the highest rate of hate crimes per 100,000 people?"),
-        p("3. Is there any correlation between the 2016 general election and a change in the average number of hate crimes per state?"),
-
-
+        br(), uiOutput("conclusion"),
         h3("Our Team", align = "Center"),
         img(
-          src = "Team.jpg", width = 900,
+          src = "Team.jpg", height = 190, width = 1000, 
           style = "display: block; margin-left: auto; margin-right: auto;"
         )
       )
