@@ -8,27 +8,32 @@ shinyServer(function(input, output) {
   # render various Markdown files for tab explanations
   output$introduction <- renderUI({
     HTML(markdown::markdownToHTML(knit("markdown/introduction.md",
-                                       quiet = TRUE)))
+      quiet = TRUE
+    )))
   })
 
   output$maps <- renderUI({
     HTML(markdown::markdownToHTML(knit("markdown/maps.md",
-                                       quiet = TRUE)))
+      quiet = TRUE
+    )))
   })
 
   output$scatterinfo <- renderUI({
     HTML(markdown::markdownToHTML(knit("markdown/scatterplot.md",
-                                       quiet = TRUE)))
+      quiet = TRUE
+    )))
   })
 
   output$conclusion <- renderUI({
     HTML(markdown::markdownToHTML(knit("markdown/conclusion.md",
-                                       quiet = TRUE)))
+      quiet = TRUE
+    )))
   })
 
   output$barplot_info <- renderUI({
     HTML(markdown::markdownToHTML(knit("markdown/barplot_info.md",
-                                       quiet = TRUE)))
+      quiet = TRUE
+    )))
   })
 
   output$interactive <- renderPlotly({
@@ -39,7 +44,6 @@ shinyServer(function(input, output) {
       showlakes = TRUE,
       lakecolor = toRGB("white")
     )
-
 
     p <- plot_geo(crimes_states, locationmode = "USA-states") %>%
       add_trace(
@@ -86,7 +90,7 @@ shinyServer(function(input, output) {
   # Defines output and produces a graphical
   # plot that can be displayed in the UI.
   output$scatter <- renderPlotly({
-    # Constructs scatterplot using data.
+    # Constructs scatterplot using data from hate_crimes_minus_dc.
     scatterplot <- plot_ly(hate_crimes_minus_dc,
       x = hate_crimes_minus_dc[[input$xvar[1]]],
       y = hate_crimes_minus_dc$avg_hatecrimes_per_100k_fbi,
@@ -100,6 +104,7 @@ shinyServer(function(input, output) {
       )
 
     # Adds markers.
+    # Ensures each graph selected is displayed on the graph
     for (column in input$xvar) {
       scatterplot <- add_markers(scatterplot,
         x = hate_crimes_minus_dc[[column]],
