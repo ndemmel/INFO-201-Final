@@ -6,6 +6,16 @@ h3 {
   font-family: "georgia";
 }
 
+.nav-tabs {
+  background-color: Gray;
+}
+
+.image {
+  position: fixed;
+  right: 0;
+  bottom: 0; /* is it like center align or what? */ 
+  z-index: 9999;
+}
 body {
   background-color: White;
   color: Black;
