@@ -17,7 +17,7 @@ worst_state <- worst_state_frame$state
 ## Calculate Correlation Coefficients
 # affect of income inequality on rate of hate crimes
 hate_crimes_minus_dc <- mutate(hate_crimes_minus_dc, income_corr = gini_index /
-                               avg_hatecrimes_per_100k_fbi)
+  avg_hatecrimes_per_100k_fbi)
 
 # affect of education on rate of hate crimes
 hate_crimes_minus_dc <- mutate(hate_crimes_minus_dc,
@@ -27,7 +27,7 @@ hate_crimes_minus_dc <- mutate(hate_crimes_minus_dc,
 
 # affect of racial diversity on rate of hate crimes
 hate_crimes_minus_dc <- mutate(hate_crimes_minus_dc, div_corr = share_non_white
-                               / avg_hatecrimes_per_100k_fbi)
+/ avg_hatecrimes_per_100k_fbi)
 
 # rename corr columns for easy use in visualizations
 names(hate_crimes_minus_dc)[names(hate_crimes_minus_dc) == "edu_corr"] <-

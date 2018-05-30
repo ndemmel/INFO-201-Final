@@ -35,7 +35,7 @@ shinyServer(function(input, output) {
       quiet = TRUE
     )))
   })
-  
+
   # defines and plots choropleth map from UI input
   output$interactive <- renderPlotly({
     # map projection/options
@@ -45,7 +45,7 @@ shinyServer(function(input, output) {
       showlakes = TRUE,
       lakecolor = toRGB("white")
     )
-    
+
     p <- plot_geo(crimes_states, locationmode = "USA-states") %>%
       add_trace(
         z = ~ crimes_states[[input$beforeOrAfter]],
@@ -53,8 +53,7 @@ shinyServer(function(input, output) {
         color = ~ crimes_states[[input$beforeOrAfter]],
         colors = "Purples"
       ) %>%
-      colorbar(title = "Number Per 100K Population", limits = c(0, 0.9)
-      ) %>%
+      colorbar(title = "Number Per 100K Population", limits = c(0, 0.9)) %>%
       layout(
         title = "Average Number of Hate Crimes over a 10-Day
         Period per 100,000 People by State",
@@ -95,11 +94,11 @@ shinyServer(function(input, output) {
     # if no input selected
     # avoids error
     if (length(input$xvar) == 0) return(NULL)
-    
-    scatterplot <- plot_ly(hate_crimes_minus_DC,
-                           x = hate_crimes_minus_DC[[input$xvar[1]]],
-                           y = hate_crimes_minus_DC$avg_hatecrimes_per_100k_fbi,
-                           text = ""
+
+    scatterplot <- plot_ly(hate_crimes_minus_dc,
+      x = hate_crimes_minus_dc[[input$xvar[1]]],
+      y = hate_crimes_minus_dc$avg_hatecrimes_per_100k_fbi,
+      text = ""
     ) %>%
       layout(
         title = paste0("Significance of Social Factors on Rate of Hate Crimes"),

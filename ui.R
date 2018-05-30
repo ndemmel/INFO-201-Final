@@ -11,7 +11,7 @@ shinyUI(fluidPage(
   navbarPage("Factors Influencing Rate of Hate Crimes",
     inverse = FALSE,
     tags$link(rel = "stylesheet", type = "text/css", href = "style.css"),
-    tags$style(type = "text/css", "a{color: #191970;}", "bold"),
+    tags$style(type = "text/css", "a{color: #191970;} ", "bold"),
     tabsetPanel(
       type = "tabs",
       # INTRODUCTION
@@ -106,7 +106,7 @@ shinyUI(fluidPage(
       # Outputs the plot and information on the main panel.
       tabPanel(
         "Demographic Factors",
-        tags$h3(""),
+        tags$h3("Do Demographic Factors Influence the Rate of Hate Crimes?"),
         br(),
         sidebarLayout(
           sidebarPanel(

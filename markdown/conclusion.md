@@ -2,7 +2,7 @@ While our visualizations, _2016 Elections_, _Compare States_, and _Demographic F
 
 <p class = "indented"> <br><b>2016 Election</b>
   <br>
-    The 'Before 2016 Election' data was taken from the FBI's Uniform Crime Reporting (UCR) Program, which gave the average annual hate crimes per 100K population for each state from __2010-15__. The data recorded in this program are crimes reported through law enforcement agencies. The 'After 2016 Election' data was taken from the Southern Poverty Law Center (SPLC), which gave the number hate crimes per 100K for the __10 days__ after the 2016 Presidential Election (Nov. 9-18, 2016). However, the data recorded by this organization were of all reported crimes (prosecutable) and incidents (non-prosecutable) from citizens.
+    The 'Before 2016 Election' data was taken from the FBI's Uniform Crime Reporting (UCR) Program, which gave the average annual hate crimes per 100K population for each state from <b>2010-15</b>. The data recorded in this program are crimes reported through law enforcement agencies. The 'After 2016 Election' data was taken from the Southern Poverty Law Center (SPLC), which gave the number hate crimes per 100K for the <b>10 days</b> after the 2016 Presidential Election (Nov. 9-18, 2016). However, the data recorded by this organization were of all reported crimes (prosecutable) and incidents (non-prosecutable) from citizens.
     <br><br>
     In this case, it is imperative to remember where the data is coming from when making conclusions. Consider the impact awareness bias may have on reporting after the election. Would the sentiments and results of the election cause citizens to overreport or underreport hate crimes or incidents?
   <br><br>
