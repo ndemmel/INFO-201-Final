@@ -46,7 +46,7 @@ shinyServer(function(input, output) {
       
       colorbar(title = "Number Per 100K Population", limits = c(0, 0.9)) %>%
       layout(
-        title = "Average Annual Number of Hate Crimes by State per 100,000 People",
+        title = "Average Number of Hate Crimes over a 10-Day Period per 100,000 People by State",
         geo = g
       )
   })
@@ -72,7 +72,7 @@ shinyServer(function(input, output) {
     text(0.7, 6, paste0("(", sum_state_one_crimes, ")"))
     text(1.9, 6, paste0("(", sum_state_two_crimes, ")"))
   })
-  
+
   output$scatter <- renderPlotly({
     scatterplot <- plot_ly(hate_crimes_minus_DC,
                            x = hate_crimes_minus_DC[[input$xvar[1]]],

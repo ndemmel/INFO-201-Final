@@ -1,4 +1,4 @@
-The choropleth maps above show the distribution of reported hate crimes before and after the 2016 presidential election. It is important to focus on the shading, rather than the data values.
+The choropleth map above shows the distribution of reported hate crimes before and after the 2016 presidential election. It is important to focus on the shading, rather than the data values.
 
 - Which states' rate of hate crimes increased the most after the election? Keep in mind, there may be other influential factors, as well.
 
