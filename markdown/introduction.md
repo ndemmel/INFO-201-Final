@@ -1,6 +1,10 @@
+<<<<<<< HEAD:introduction.md
+Welcome to our data visualization application on the connection between rate of hate crimes and various demographic factors. This data will be exploring the [Hate Crimes](https://github.com/fivethirtyeight/data/tree/master/hate-crimes) dataset from **FiveThirtyEight**, which is accessible on GitHub (more information regarding the dataset can be found under _Conclusion_).
+=======
 
 
 Welcome to our data visualization application on the connection between rate of hate crimes and various demographic factors. This data will be exploring the [Hate Crimes](https://github.com/fivethirtyeight/data/tree/master/hate-crimes) dataset from **FiveThirtyEight**, which is accessible on GitHub (more information regarding dataset can be found under _Conclusion_).
+>>>>>>> 4519e0db9b2d1ff3da6851efeb2ad2907abdbee7:markdown/introduction.md
 
 Our goals with working with this dataset are to bring awareness to the real-life impacts income inequality, level of education, and diversity have on individuals and our country's unity and wellbeing. We hope to educate the general public, while also encouraging those in positions of power to address these issues through legislation and advocacy.
 

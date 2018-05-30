@@ -8,19 +8,23 @@ shinyServer(function(input, output) {
   output$introduction <- renderUI({
     HTML(markdown::markdownToHTML(knit('markdown/introduction.md', quiet = TRUE)))
   })
-  
+
   output$maps <- renderUI({
     HTML(markdown::markdownToHTML(knit('markdown/maps.md', quiet = TRUE)))
   })
-  
+
   output$scatterinfo <- renderUI({
     HTML(markdown::markdownToHTML(knit('markdown/scatterplot.md', quiet = TRUE)))
   })
-  
+
   output$conclusion <- renderUI({
     HTML(markdown::markdownToHTML(knit('conclusion.md', quiet = TRUE)))
   })
-  
+
+  output$barplot_info <- renderUI({
+    HTML(markdown::markdownToHTML(knit('barplot_info.md', quiet = TRUE)))
+  })
+
   output$interactive <- renderPlotly({
     # map projection/options
     g <- list(
@@ -29,7 +33,7 @@ shinyServer(function(input, output) {
       showlakes = TRUE,
       lakecolor = toRGB("white")
     )
-    
+
 
     p <- plot_geo(crimes_states, locationmode = "USA-states") %>%
       add_trace(
@@ -45,7 +49,7 @@ shinyServer(function(input, output) {
         geo = g
       )
   })
-  
+
   output$comparison <- renderPlot({
     state_one_crimes <- hate_crimes %>%
       filter(state == input$state1) %>%
@@ -56,7 +60,7 @@ shinyServer(function(input, output) {
       select(avg_hatecrimes_per_100k_fbi)
     sum_state_two_crimes <- sum(state_two_crimes)
     both_state_crimes <- c(sum_state_one_crimes, sum_state_two_crimes)
-    
+
     barplot(
       both_state_crimes,
       names.arg = c(input$state1, input$state2),
@@ -105,7 +109,7 @@ shinyServer(function(input, output) {
                           "<br>Rate of Hate Crimes:", round(hate_crimes_minus_DC$avg_hatecrimes_per_100k_fbi,4))
           ))
       }
-    
+
       if(match('Education', input$xvar)) {
         return(plot_ly(hate_crimes_minus_DC,
                 x = hate_crimes_minus_DC$Education,
