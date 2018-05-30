@@ -103,6 +103,8 @@ shinyUI(fluidPage(
         sidebarLayout(
           sidebarPanel(
             "Select Regression Lines You Wish to Compare",
+            # Creates a checkbox menu so the user can see up to 3 graphs
+            # at once
             checkboxGroupInput("xvar",
               label = "Choose from 3 Characteristics",
               choices = list(
@@ -113,6 +115,8 @@ shinyUI(fluidPage(
               selected = "Education"
             )
           ),
+          # Renders the plot on the main panel and displays a caption beneath
+          # the graph
           mainPanel(plotlyOutput("scatter"), br(), uiOutput("scatterinfo")))
       ),
 

@@ -77,12 +77,12 @@ shinyServer(function(input, output) {
     text(0.7, 6, paste0("(", sum_state_one_crimes, ")"))
     text(1.9, 6, paste0("(", sum_state_two_crimes, ")"))
   })
-
-  output$scatter <- renderPlotly({
-    scatterplot <- plot_ly(hate_crimes_minus_DC,
-                           x = hate_crimes_minus_DC[[input$xvar[1]]],
-                           y = hate_crimes_minus_DC$avg_hatecrimes_per_100k_fbi,
-                           text = ""
+  # Constructs scatterplot with user iput and data from hate_crimes
+    output$scatter <- renderPlotly({
+      scatterplot <- plot_ly(hate_crimes_minus_DC,
+                          x = hate_crimes_minus_DC[[input$xvar[1]]],
+                          y = hate_crimes_minus_DC$avg_hatecrimes_per_100k_fbi,
+                          text = ""
     ) %>%
       layout(title = paste0("Significance of Social Factors on Rate of Hate Crimes"),
              xaxis = list(title = "Correlation Coefficient", range = c(0,3)),
@@ -90,6 +90,7 @@ shinyServer(function(input, output) {
              showlegend = TRUE
       )
 
+    # Ensures each graph selected is displayed on the graph
     for(column in input$xvar) {
       scatterplot <- add_markers(scatterplot,
                                  x = hate_crimes_minus_DC[[column]],
