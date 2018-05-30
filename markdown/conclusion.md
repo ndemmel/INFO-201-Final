@@ -1,6 +1,7 @@
-While our visualizations, _2016 Elections_, _Compare States_, and 
-_Demographic Factors_, revealed significant trends and correlations with regards 
-to hate crimes, we also need to be aware of some of the limitations of the data.
+While our visualizations in the _2016 Election Effect_, 
+_Compare Crimes by State_, and _Demographic Factors_ tabs revealed significant 
+trends and correlations with regards to hate crimes, we also need to be aware of
+some of the limitations of the data.
 
 <p class = "indented"> 
   <br>
@@ -8,13 +9,13 @@ to hate crimes, we also need to be aware of some of the limitations of the data.
   <br>
   The 'Before 2016 Election' data was taken from the FBI's Uniform Crime 
   Reporting (UCR) Program, which gave the average annual number of hate crimes 
-  per a 100K population for each state from __2010-15__. The data recorded in 
-  this program are the crimes reported through law enforcement agencies. The 
+  per a 100K population for each state from <i>2010-15</i>. The data recorded 
+  in this program are the crimes reported through law enforcement agencies. The 
   'After 2016 Election' data was recorded by the Southern Poverty Law Center 
-  (SPLC), which gave the number hate crimes per 100K people for the __10 days__ 
-  following the 2016 Presidential Election (Nov. 9-18, 2016). However, the data 
-  recorded by this organization were of all reported crimes (prosecutable) and 
-  incidents (non-prosecutable) from citizens.
+  (SPLC), which gave the number hate crimes per 100K people for the 
+  <i>10 days</i> following the 2016 Presidential Election (Nov. 9-18, 2016). 
+  However, the data recorded by this organization were of all reported crimes 
+  (prosecutable) and incidents (non-prosecutable) from citizens.
   <br>
   <br>
   In this case, it is imperative to remember where data is coming from when

@@ -27,8 +27,8 @@ shinyUI(fluidPage(
       # Widget is two buttons that allows user to change output.
       # Outputs the plot and information.
       tabPanel(
-        "2016 Election Affect",
-        tags$h3("Affect of the 2016 Presidential Election on Number of Hate
+        "2016 Election Effect",
+        tags$h3("Effect of the 2016 Presidential Election on Number of Hate
                 Crimes"),
         br(),
         plotlyOutput("interactive"),
