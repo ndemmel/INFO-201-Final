@@ -10,7 +10,6 @@ shinyUI(fluidPage(
   navbarPage("Factors Influencing Number of Hate Crimes",
     inverse = FALSE,
     tags$link(rel = "stylesheet", type = "text/css", href = "style.css"),
-    tags$style(type = "text/css", "a{color: #191970;} ", "bold"),
     tabsetPanel(
       type = "tabs",
       # Defines introduction tab, outputs text and image.
