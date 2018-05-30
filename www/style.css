@@ -8,6 +8,16 @@ h3 {
   font-family: "georgia";
 }
 
+.nav-tabs {
+  background-color: White;
+}
+
+.image {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+}
 body {
   background-color: White;
   color: Black;

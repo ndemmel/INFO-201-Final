@@ -8,11 +8,12 @@ While our 3 visualizations, _2016 Elections_, _Compare States_, and _Demographic
   <br><br>
   <b>Demographic Factors</b>
   <br>
+    To calculate the coefficients, we divided each of our variables of interest (Education, Racial Diversity, and Income Inequality) by the average number of hate crimes per 100,000 people in a year. The numbers derived from this analysis represent each variable's closeness to the average rate of hate crimes.
 </p>
 
-In addition, it is imperative to note that **correlation does not imply causation**. An observed trend between 2 variables does not necessarily mean the 2 variables are directly related. Since this is an extremely complex social issue, it would be an oversimplification to conclude that income inequality or level of education, for instance, have sole proportional impact on the rate of hate crimes in a state.
+In addition, it is imperative to note that **correlation does not imply causation**. An observed trend between 2 variables does not necessarily mean the 2 variables are directly related. Especially since this is an extremely complex social situation, it would be an oversimplification to conclude that income inequality or level of education, for instance, have sole proportional impact on the rate of hate crimes in a state.
 
-Deriving policy implications just from our visualizations may be tricky considering these limitations above. Instead, our hope is that our visualizations provoke the need for further action, including further research, regarding how to reduce the number of hate crimes in the United States.
+Deriving policy implications just from our visualizations can be a bit tricky considering these limitations above. Instead, our hope is that our visualizations provoke the need for further action, including further research, regarding how to reduce the number of hate crimes.
 
 ***
 Dataset Information:
