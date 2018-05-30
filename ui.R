@@ -42,11 +42,14 @@ shinyUI(fluidPage(
         uiOutput("maps")),
 
       # SECOND TAB
+      # Defines the second tab, and two widgets in the sidebar.
+      # Outputs the plot and information on the main panel.
       tabPanel(
         "Compare States",
         tags$h3("Compare Average Annual Number of Hate Crimes Between Two States (2010-2015)"),
         br(),
         sidebarPanel(
+          # Creates drop-down menu to allow user to select state.
           selectInput("state1", "Select First State:",
             choices = list(
               "Alabama", "Alaska", "Arizona", "Arkansas", "California",
@@ -65,6 +68,7 @@ shinyUI(fluidPage(
             ),
             selected = "District of Columbia"
           ),
+          # Creates drop-down menu to allow user to select state.
           selectInput("state2", "Select Second State:",
             choices = list(
               "Alabama", "Alaska", "Arizona", "Arkansas", "California",
@@ -84,6 +88,7 @@ shinyUI(fluidPage(
             selected = "Wyoming"
           )
         ),
+        # Outputs plot and information text.
         mainPanel(
           plotOutput("comparison"),
           uiOutput("barplot_info")

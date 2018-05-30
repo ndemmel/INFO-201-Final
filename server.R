@@ -51,7 +51,11 @@ shinyServer(function(input, output) {
       )
   })
 
+  # Defines output and produces a graphical
+  # plot that can be displayed in the UI.
   output$comparison <- renderPlot({
+    # Takes input from widgets, then organizes
+    # and filters data from hate_crimes dataset.
     state_one_crimes <- hate_crimes %>%
       filter(state == input$state1) %>%
       select(avg_hatecrimes_per_100k_fbi)
@@ -62,6 +66,7 @@ shinyServer(function(input, output) {
     sum_state_two_crimes <- sum(state_two_crimes)
     both_state_crimes <- c(sum_state_one_crimes, sum_state_two_crimes)
 
+    # Constructs barplot using inputs and data.
     barplot(
       both_state_crimes,
       names.arg = c(input$state1, input$state2),
