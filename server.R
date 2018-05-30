@@ -7,25 +7,30 @@ library(knitr)
 shinyServer(function(input, output) {
   # render various Markdown files for tab explanations
   output$introduction <- renderUI({
-    HTML(markdown::markdownToHTML(knit('markdown/introduction.md', quiet = TRUE)))
+    HTML(markdown::markdownToHTML(knit("markdown/introduction.md",
+                                       quiet = TRUE)))
   })
-  
+
   output$maps <- renderUI({
-    HTML(markdown::markdownToHTML(knit('markdown/maps.md', quiet = TRUE)))
+    HTML(markdown::markdownToHTML(knit("markdown/maps.md",
+                                       quiet = TRUE)))
   })
-  
+
   output$scatterinfo <- renderUI({
-    HTML(markdown::markdownToHTML(knit('markdown/scatterplot.md', quiet = TRUE)))
+    HTML(markdown::markdownToHTML(knit("markdown/scatterplot.md",
+                                       quiet = TRUE)))
   })
-  
+
   output$conclusion <- renderUI({
-    HTML(markdown::markdownToHTML(knit('markdown/conclusion.md', quiet = TRUE)))
+    HTML(markdown::markdownToHTML(knit("markdown/conclusion.md",
+                                       quiet = TRUE)))
   })
-  
+
   output$barplot_info <- renderUI({
-    HTML(markdown::markdownToHTML(knit('markdown/barplot_info.md', quiet = TRUE)))
+    HTML(markdown::markdownToHTML(knit("markdown/barplot_info.md",
+                                       quiet = TRUE)))
   })
-  
+
   output$interactive <- renderPlotly({
     # map projection/options
     g <- list(
@@ -34,8 +39,8 @@ shinyServer(function(input, output) {
       showlakes = TRUE,
       lakecolor = toRGB("white")
     )
-    
-    
+
+
     p <- plot_geo(crimes_states, locationmode = "USA-states") %>%
       add_trace(
         z = ~ crimes_states[[input$beforeOrAfter]],
@@ -43,10 +48,10 @@ shinyServer(function(input, output) {
         color = ~ crimes_states[[input$beforeOrAfter]],
         colors = "Purples"
       ) %>%
-      
       colorbar(title = "Number Per 100K Population", limits = c(0, 0.9)) %>%
       layout(
-        title = "Average Number of Hate Crimes over a 10-Day Period per 100,000 People by State",
+        title = "Average Number of Hate Crimes over a 10-Day
+        Period per 100,000 People by State",
         geo = g
       )
   })
@@ -78,24 +83,30 @@ shinyServer(function(input, output) {
     text(1.9, 6, paste0("(", sum_state_two_crimes, ")"))
   })
 
+  # Defines output and produces a graphical
+  # plot that can be displayed in the UI.
   output$scatter <- renderPlotly({
-    scatterplot <- plot_ly(hate_crimes_minus_DC,
-                           x = hate_crimes_minus_DC[[input$xvar[1]]],
-                           y = hate_crimes_minus_DC$avg_hatecrimes_per_100k_fbi,
-                           text = ""
+    # Constructs scatterplot using data.
+    scatterplot <- plot_ly(hate_crimes_minus_dc,
+      x = hate_crimes_minus_dc[[input$xvar[1]]],
+      y = hate_crimes_minus_dc$avg_hatecrimes_per_100k_fbi,
+      text = ""
     ) %>%
-      layout(title = paste0("Significance of Social Factors on Rate of Hate Crimes"),
-             xaxis = list(title = "Correlation Coefficient", range = c(0,3)),
-             yaxis = list(title = "Avg Annual Hate Crimes per 100K Population"),
-             showlegend = TRUE
+      layout(
+        title = paste0("Significance of Social Factors on Rate of Hate Crimes"),
+        xaxis = list(title = "Correlation Coefficient", range = c(0, 3)),
+        yaxis = list(title = "Avg Annual Hate Crimes per 100K Population"),
+        showlegend = TRUE
       )
 
-    for(column in input$xvar) {
+    # Adds markers.
+    for (column in input$xvar) {
       scatterplot <- add_markers(scatterplot,
-                                 x = hate_crimes_minus_DC[[column]],
-                                 y = hate_crimes_minus_DC$avg_hatecrimes_per_100k_fbi,
-                                 color = column,
-                                 text = ~paste(hate_crimes_minus_DC$state))
+        x = hate_crimes_minus_dc[[column]],
+        y = hate_crimes_minus_dc$avg_hatecrimes_per_100k_fbi,
+        color = column,
+        text = ~ paste(hate_crimes_minus_dc$state)
+      )
     }
     scatterplot
   })
